@@ -1,6 +1,10 @@
 <?php
 include 'connect.php';
 
+
+print_r($_FILES['file']);
+die();
+
 $imageData = '';
 $flag = 0;
 

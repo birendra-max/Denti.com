@@ -137,7 +137,7 @@ if (isset($_POST['submit'])) {
                                         <div id="floatingDropIndicator" class="floating-drop-indicator">
                                             <span>Drop files to upload them to</span>
                                         </div>
-                                        <input type="file" id="selectfile" webkitdirectory mozdirectory multiple />
+                                        <input type="file" id="selectfile" directory="" webkitdirectory="" mozdirectory="" multiple />
 
                                     </div>
                                     <section>
@@ -616,8 +616,6 @@ if (isset($_POST['submit'])) {
         ajax_request.send(formData);
     }
 </script>
-
-
 
 <?php
 include 'footer.php';

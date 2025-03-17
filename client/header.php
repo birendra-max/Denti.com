@@ -75,9 +75,6 @@ $uri_name = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
     <!-- Theme style -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <!-- Zip convert foldr to file.zip in js  -->
-    <script src="https://cdn.jsdelivr.net/npm/jszip@3.8.0/dist/jszip.min.js"></script>
-    <!-- Zip convert foldr to file.zip in js  -->
 
 
     <script src="plugins/toastr/toastr.min.js"></script>
