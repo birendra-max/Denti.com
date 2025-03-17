@@ -124,7 +124,7 @@ if (isset($_POST['submit'])) {
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <div id="drag_drop">Drag & Drop File Here</div>
+                                <div id="drag_drop">Fast, smooth, and stress-free! ⚡ Drag and Drop files here—our team is waiting to get started with top-quality results!</div>
                                 <center>
                                     <div class="btn btn-default btn-file">
 
@@ -137,10 +137,7 @@ if (isset($_POST['submit'])) {
                                         <div id="floatingDropIndicator" class="floating-drop-indicator">
                                             <span>Drop files to upload them to</span>
                                         </div>
-
-                                        You can <i class="fas fa-paperclip"></i> Browse or Drag and Drop files to upload
-                                        orders.
-                                        <input type="file" id="selectfile" multiple webkitdirectory />
+                                        <input type="file" id="selectfile" webkitdirectory mozdirectory multiple />
 
                                     </div>
                                     <section>
@@ -578,7 +575,7 @@ if (isset($_POST['submit'])) {
         document.getElementById('progress_bar' + i).style.display = 'block';
 
         var ajax_request = new XMLHttpRequest();
-        ajax_request.open("POST", "upload.php");
+        ajax_request.open("POST", "upload.php", true);
 
         // Upload progress bar update
         ajax_request.upload.addEventListener('progress', function(event) {
@@ -619,6 +616,7 @@ if (isset($_POST['submit'])) {
         ajax_request.send(formData);
     }
 </script>
+
 
 
 <?php

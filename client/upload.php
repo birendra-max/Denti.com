@@ -16,6 +16,7 @@ if (isset($_FILES['file']['name']) && isset($_SESSION['userid'])) {
     $fname = basename($_FILES["file"]["name"]);
     $okay = false;
 
+
     // Acceptable file types
     $name = explode(".", $filename);
     $accepted_types = array('application/zip', 'application/x-zip-compressed', 'multipart/x-zip', 'application/x-compressed');

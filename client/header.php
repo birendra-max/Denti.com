@@ -75,6 +75,11 @@ $uri_name = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
     <!-- Theme style -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+    <!-- Zip convert foldr to file.zip in js  -->
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.8.0/dist/jszip.min.js"></script>
+    <!-- Zip convert foldr to file.zip in js  -->
+
+
     <script src="plugins/toastr/toastr.min.js"></script>
     <style type="text/css">
         ul>li {
@@ -114,12 +119,11 @@ $uri_name = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
             width: 50px;
         }
 
-        input[type="checkbox"]{
-            zoom:1.5;
+        input[type="checkbox"] {
+            zoom: 1.5;
         }
-
     </style>
-    
+
 </head>
 
 <body class="hold-transition layout-top-nav" style="zoom: 90%;">
@@ -135,8 +139,6 @@ $uri_name = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
                 height: 32px;
                 fill: #fff;
             }
-
-
         </style>
 
         <nav class="navbar navbar-expand-sm bg-dark fixed-top">
