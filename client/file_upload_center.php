@@ -5,7 +5,7 @@
 <?php
 
 include 'header.php';
-// include 'testmail.php';
+include 'testmail.php';
 if (isset($_POST['submit'])) {
     extract($_POST);
     $tfiles = $_POST['total_files'];

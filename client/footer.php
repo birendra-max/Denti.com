@@ -1,5 +1,3 @@
-
-
 <div class="modal fade" id="redesign">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -784,7 +782,7 @@
   }
 </script>
 <style>
-  #smale_box{
+  #smale_box {
     background-color: #FFFFFF !important;
   }
 </style>

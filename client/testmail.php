@@ -3,7 +3,7 @@
 // require '/var/www/html/PHPMailer-master/PHPMailer-master/src/SMTP.php';
 // require '/var/www/html/PHPMailer-master/PHPMailer-master/src/Exception.php';
 
-require 'C:\xampp\htdocs\Dentigolab.com\vendor\autoload.php';
+require '../Third Party/vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
