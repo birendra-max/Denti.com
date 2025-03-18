@@ -58,17 +58,34 @@ include 'header.php';
               </div>
             </div>
 
-            <div class="row mt-4 text-center">
-              <div class="col-12 d-flex flex-wrap justify-content-center">
-                <button class="btn btn-outline-primary mx-2" onclick="showHint('1')"> <input type="radio" name="search"> All</button>
-                <button class="btn btn-outline-primary mx-2" onclick="showHint('2')"> <input type="radio" name="search"> New </button>
-                <button class="btn btn-outline-primary mx-2" onclick="showHint('3')"> <input type="radio" name="search"> In Progress</button>
-                <button class="btn btn-outline-primary mx-2" onclick="showHint('4')"> <input type="radio" name="search"> QC Required</button>
-                <button class="btn btn-outline-primary mx-2" onclick="showHint('5')"> <input type="radio" name="search"> On Hold</button>
-                <button class="btn btn-outline-primary mx-2" onclick="showHint('7')"> <input type="radio" name="search"> Canceled </button>
-                <button class="btn btn-outline-primary mx-2" onclick="showHint('8')"> <input type="radio" name="search"> Completed </button>
+            <section>
+              <div class="row mt-4 text-center">
+                <div class="col-12 d-flex flex-wrap justify-content-center">
+                  <button class="btn btn-outline-primary mx-2" style="font-size:1em;" onclick="showHint('1', this)">All</button>
+                  <button class="btn btn-outline-primary mx-2" style="font-size:1em;" onclick="showHint('2', this)">New</button>
+                  <button class="btn btn-outline-primary mx-2" style="font-size:1em;" onclick="showHint('3', this)">In Progress</button>
+                  <button class="btn btn-outline-primary mx-2" style="font-size:1em;" onclick="showHint('4', this)">QC Required</button>
+                  <button class="btn btn-outline-primary mx-2" style="font-size:1em;" onclick="showHint('5', this)">On Hold</button>
+                  <button class="btn btn-outline-primary mx-2" style="font-size:1em;" onclick="showHint('7', this)">Canceled</button>
+                  <button class="btn btn-outline-primary mx-2" style="font-size:1em;" onclick="showHint('8', this)">Completed</button>
+                </div>
               </div>
-            </div>
+
+              <style>
+                /* Styling for the active button */
+                .btn-outline-primary.active {
+                  background-color: #007bff;
+                  border-color: #007bff;
+                  color: white;
+                }
+
+                /* Ensure font size stays consistent for all buttons */
+                .btn-outline-primary {
+                  font-size: 1em;
+                }
+              </style>
+            </section>
+
 
             <div class="row mt-4">
               <div class="col-3">
@@ -160,8 +177,16 @@ include 'header.php';
 
 
 <script>
-  function showHint(str) {
+  function showHint(str, buttonElement) {
     str = str + "," + document.getElementById("snumber").value + "," + document.getElementById("enumber").value;
+
+    const buttons = document.querySelectorAll('.btn-outline-primary');
+    buttons.forEach(button => {
+      button.classList.remove('active');
+    });
+
+    // Add the 'active' class to the clicked button
+    buttonElement.classList.add('active');
 
     if (str.length == 0) {
       document.getElementById("report_data").innerHTML = "";

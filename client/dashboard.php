@@ -31,6 +31,10 @@ $clientid = $_SESSION['user_id'];
     #datePickerContainer {
         margin-bottom: 500vh;
     }
+
+    input[type="checkbox"] {
+        zoom: 1.5;
+    }
 </style>
 
 
@@ -349,7 +353,7 @@ $clientid = $_SESSION['user_id'];
                     if (fileType === 'Finished') {
                         var finishedFileName = baseFileName + ".zip"; // Correct ZIP file name
                         filePath = "api/finished_files/" + encodeURIComponent(finishedFileName);
-                        urls.push(filePath); 
+                        urls.push(filePath);
                     }
                 });
             });
