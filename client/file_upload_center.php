@@ -137,7 +137,7 @@ if (isset($_POST['submit'])) {
                                         <div id="floatingDropIndicator" class="floating-drop-indicator">
                                             <span>Drop files to upload them to</span>
                                         </div>
-                                        <input type="file" id="selectfile" directory="" webkitdirectory="" mozdirectory="" multiple />
+                                        <input type="file" id="selectfile" name="selectfile" multiple />
 
                                     </div>
                                     <section>
@@ -449,7 +449,7 @@ if (isset($_POST['submit'])) {
 </div>
 
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
     function _(element) {
         return document.getElementById(element);
     }
@@ -575,225 +575,7 @@ if (isset($_POST['submit'])) {
         document.getElementById('progress_bar' + i).style.display = 'block';
 
         var ajax_request = new XMLHttpRequest();
-        ajax_request.open("POST", "upload.php", true);
-
-        // Upload progress bar update
-        ajax_request.upload.addEventListener('progress', function(event) {
-            var percent_completed = Math.round((event.loaded / event.total) * 100);
-            document.getElementById('progress_bar_process' + i).style.width = percent_completed + '%';
-            document.getElementById('progress_bar_process' + i).innerHTML = percent_completed + '% completed';
-        });
-
-        // On load event after file is uploaded
-        ajax_request.addEventListener('load', function(event) {
-            var responseText = event.target.responseText;
-            console.log(responseText);
-
-            var responseArray = responseText.split("|");
-
-            var orderId = responseArray[0];
-            var fname = responseArray[1];
-            var tooth = responseArray[2];
-            var tunit = responseArray[3];
-            var message = responseArray[4];
-            var product_type = responseArray[5];
-
-            document.getElementById('tr' + i).style.display = 'table-row';
-            document.getElementById('u' + i).setAttribute('value', tunit);
-            document.getElementById('orderid' + i).setAttribute('value', orderId);
-            document.getElementById('odid' + i).setAttribute('value', orderId);
-            document.getElementById('t' + i).setAttribute('value', tooth);
-
-            document.getElementById('msg' + i).value = message;
-            document.getElementById('p_typ' + i).value = product_type;
-
-            document.getElementById('progress_bar_process' + i).innerHTML = '<div class="" style="width:250px;">' + fname + '</div>';
-            document.getElementById('error_message' + i).style.display = "none";
-            document.getElementById('drag_drop').style.borderColor = '#ccc';
-        });
-
-        // Send the file to PHP backend
-        ajax_request.send(formData);
-    }
-</script> -->
-
-
-<!-- Add JSZip Library -->
-<script src="https://cdn.jsdelivr.net/npm/jszip@3.7.1/dist/jszip.min.js"></script>
-
-<script type="text/javascript">
-    function _(element) {
-        return document.getElementById(element);
-    }
-
-    // Handle drag events to highlight the drop area
-    _('drag_drop').ondragover = function(event) {
-        this.style.borderColor = '#333';
-        return false;
-    };
-
-    _('drag_drop').ondragleave = function(event) {
-        this.style.borderColor = '#ccc';
-        return false;
-    };
-
-    // Handle the drop event for files and folders
-    $("#drag_drop").on("drop", function(e) {
-        e.preventDefault();
-        var files = e.originalEvent.dataTransfer.files;
-        processFiles(files);
-    });
-
-    // Handle the file select button click
-    $("#selectfile").on("change", function(e) {
-        var files = document.getElementById("selectfile").files;
-        processFiles(files);
-    });
-
-    // Process files (both files and files inside folders)
-    function processFiles(files) {
-        // Clear previous table content
-        $("#table_div").html(`
-        <table class="table table-hover" style="text-align:center" id="progress_table">
-            <thead>
-                <tr>
-                    <th style="width:7% !important;">Orderid</th>
-                    <th style="width:20% !important;">File</th>
-                    <th style="width:20% !important;">Product Type</th>
-                    <th style="width:7% !important;">Unit</th>
-                    <th style="width:20% !important;">Tooth</th>
-                    <th style="width:20% !important;">Message</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-        `);
-
-        // Detect if files are from a folder (using webkitRelativePath)
-        var folderFiles = [];
-        var individualFiles = [];
-
-        for (var i = 0; i < files.length; i++) {
-            if (files[i].webkitRelativePath) {
-                // It's a folder; add it to folderFiles
-                folderFiles.push(files[i]);
-            } else {
-                // It's a single file
-                individualFiles.push(files[i]);
-            }
-        }
-
-        if (folderFiles.length > 0) {
-            // Zip the folder content
-            zipFolder(folderFiles);
-        } else {
-            // Handle normal files
-            uploadFiles(individualFiles);
-        }
-
-        $('#sbtbtn').show();
-        document.getElementById('total_files').setAttribute('value', files.length);
-    }
-
-    // Function to zip folder contents and upload
-    function zipFolder(files) {
-        var zip = new JSZip();
-        var folderName = "folder_upload";
-
-        // Add all the files from the folder to the zip
-        for (var i = 0; i < files.length; i++) {
-            zip.file(files[i].webkitRelativePath, files[i]);
-        }
-
-        // Generate the zip file as a Blob and create a new File object
-        zip.generateAsync({
-            type: "blob"
-        }).then(function(content) {
-            var zipFile = new File([content], "folder.zip", {
-                type: "application/zip"
-            });
-            uploadFiles([zipFile]); // Call upload function with the zip file
-        });
-    }
-
-    // Function to upload files (including zip files)
-    function uploadFiles(files) {
-        // Loop over the files and prepare the table for each file
-        for (var i = 0; i < files.length; i++) {
-            var fileName = files[i].name;
-
-            $("#progress_table tbody").append(`
-            <tr id="tr${i}">
-                <td style="width:7% !important;">
-                    <input class="form-control" type="text" id="odid${i}" readonly>
-                </td>
-                <td style="width:20% !important;">
-                    <div class="progress" id="progress_bar${i}" style="display:none; height:auto;padding:5px;">
-                        <div class="progress-bar bg-success" id="progress_bar_process${i}" role="progressbar" style="width:0%; height:auto;padding:5px;white-space:pre-wrap">0%</div>
-                    </div>
-                </td>
-                <td style="width:20% !important;">
-                    <input class="form-control" type="text" id="p_typ${i}" readonly>
-                    <input type="hidden" id="p_typ${i}">
-                </td>
-                <td style="width:5% !important;">
-                    <input class="form-control" type="text" id="u${i}" readonly>
-                    <input type="hidden" id="u${i}">
-                </td>
-                <td style="width:20% !important;">
-                    <input type="text" id="t${i}" class="form-control" readonly>
-                    <input type="hidden" id="t${i}">
-                    <input type="hidden" name="orderid${i}" id="orderid${i}" class="form-control">
-                </td>
-                <td style="width:20% !important;">
-                    <textarea class="form-control" name="msg${i}" id="msg${i}" width="100%"></textarea>
-                </td>
-                <td id="error_message${i}" style="color:red; display:none;"></td>
-            </tr>
-            `);
-
-            // Send AJAX request to check if the file exists
-            (function(i) { // We use an IIFE to capture the index
-                $.ajax({
-                    url: 'file_exists.php',
-                    type: 'POST',
-                    data: {
-                        fileName: fileName
-                    },
-                    success: function(response) {
-                        var fileIndex = i; // Use the captured index for correct handling
-
-                        if (response === 'exists') {
-                            var confirmUpload = confirm(`${fileName} already exists. Do you want to upload it again?`);
-                            if (confirmUpload) {
-                                uploadSingleFile(files[fileIndex], fileIndex);
-                            } else {
-                                window.location.reload();
-                            }
-                        } else {
-                            uploadSingleFile(files[fileIndex], fileIndex);
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        console.log('Error checking file: ' + error);
-                    }
-                });
-            })(i);
-        }
-    }
-
-    // Function to upload a single file
-    function uploadSingleFile(file, i) {
-        var formData = new FormData();
-        formData.append("file", file);
-
-        document.getElementById("timed").style.display = 'block';
-        document.getElementById("cardd").style.display = 'none';
-        document.getElementById('tr' + i).style.display = 'table-row';
-        document.getElementById('progress_bar' + i).style.display = 'block';
-
-        var ajax_request = new XMLHttpRequest();
-        ajax_request.open("POST", "upload.php", true);
+        ajax_request.open("POST", "upload.php");
 
         // Upload progress bar update
         ajax_request.upload.addEventListener('progress', function(event) {
@@ -834,7 +616,6 @@ if (isset($_POST['submit'])) {
         ajax_request.send(formData);
     }
 </script>
-
 
 
 <?php

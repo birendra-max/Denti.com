@@ -45,7 +45,7 @@ include 'header.php';
               <div class="col-3">
                 <div class="form-group">
                   <label style="display: none;">End Number</label>
-                  <input type="text" id="enumber" class="form-control" placeholder="End Number" onkeyup="showHint('1')">
+                  <input type="text" id="enumber" class="form-control" placeholder="End Number" onkeyup="showHint('1', this)">
                 </div>
               </div>
               <div class="col-3">
