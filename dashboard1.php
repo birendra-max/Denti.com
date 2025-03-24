@@ -355,10 +355,14 @@ function Total_row($bd, $status, $clid)
 
   /* Circle container styling */
   .small-box .circle-container {
-    background-color: #f0f0f0; /* Light background for better visibility */
-    border-radius: 50%; /* Makes the shape circular */
-    width: 170px; /* Control the size of the circle */
-    height: 150px; /* Control the size of the circle */
+    background-color: #f0f0f0;
+    /* Light background for better visibility */
+    border-radius: 50%;
+    /* Makes the shape circular */
+    width: 170px;
+    /* Control the size of the circle */
+    height: 150px;
+    /* Control the size of the circle */
     display: flex;
     justify-content: center;
     align-items: center;

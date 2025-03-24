@@ -27,61 +27,9 @@ $clientid = $_SESSION['user_id'];
 
       <?php include("dashboard1.php") ?>
 
-      <!-- <div class="row">
-        <div class="col-2">
-          <div class="form-group">
-            <label>Selection Type</label><br>
-            <input type="checkbox" name="select_all" id="select_all" onclick='selects()' value="all" style="zoom:1.5"> Select All Cases
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="form-group">
-            <label>Donwload</label>
-            <select class="form-control" id="download_file">
-              <option value="">Choose File Type</option>
-
-              <option value="Initial">Initial File</option>
-              <option value="STL">STL File</option>
-              <option value="Finished">Finished File</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-2">
-          <div class="form-group">
-            <label>Action</label><br>
-            <input type="button" name="donload_button" id="download_button" value="Donwload Now" class="btn btn-primary">
-          </div>
-        </div>
-        <div class="col-2" style="display:none;">
-          <div class="form-group">
-            <label>Status</label>
-            <select name="filestatus" id="filestatus" class="form-control">
-              <option value="Rush">Redesign and Rush</option>
-            </select>
-
-          </div>
-        </div>
-        <div class="col-2">
-          <div class="form-group">
-            <label>Action</label><br>
-            <input type="button" name="redesign_button" id="redesign_button" onclick="openredesign()" value="Send For Redesign" class="btn btn-primary">
-          </div>
-        </div>
-
-        <div class="col-2" style="display:none;">
-          <div class="form-group">
-            <label>Status</label>
-            <select name="filestatus" id="filestatus" class="form-control">
-              <option value="Rush">Redesign and Rush</option>
-            </select>
-          </div>
-        </div>
-      </div> -->
-
       <div class="card" style="padding: 1%;">
-
         <div class="row">
-          <div class="col-3">
+          <div class="col-2">
             <div class="form-group">
               <label>Download</label>
               <div class="dropdown col-12">
@@ -90,7 +38,7 @@ $clientid = $_SESSION['user_id'];
                   aria-expanded="false">
                   Select File Type
                 </button>
-                <div class="dropdown-menu col-8 shadow-lg" aria-labelledby="dropdownMenuButton">
+                <div class="dropdown-menu col-11 shadow-lg" aria-labelledby="dropdownMenuButton">
                   <label class="dropdown-item">
                     <input type="checkbox" value="STL" class="cursor-pointer file-type-checkbox"
                       style="margin-right: 5px; " />
@@ -105,7 +53,7 @@ $clientid = $_SESSION['user_id'];
               </div>
             </div>
           </div>
-          <div class="col-3">
+          <div class="col-1">
             <div class="form-group">
               <label>Action</label><br>
               <input type="button" name="download_button" id="download_button" value="Download Now"
@@ -130,7 +78,6 @@ $clientid = $_SESSION['user_id'];
             </div>
           </div>
         </div>
-
         <div class="form-group">
           <input type="checkbox" name="select_all" id="select_all" onclick='selects()' value="all"> Select All Cases
         </div>
@@ -139,7 +86,7 @@ $clientid = $_SESSION['user_id'];
           <table id="example1" class="table table-bordered table-striped">
             <thead>
               <tr>
-              <th>Order ID</th>
+                <th>Order ID</th>
                 <th>File Name</th>
                 <th>Delivery Time</th>
                 <th width="100">Order Status</th>
@@ -268,92 +215,92 @@ $clientid = $_SESSION['user_id'];
 
 
 <script>
-    $(document).ready(function() {
-        $('#download_button').on('click', function() {
-            var urls = [];
-            var selectedFileTypes = [];
+  $(document).ready(function() {
+    $('#download_button').on('click', function() {
+      var urls = [];
+      var selectedFileTypes = [];
 
-            // Step 1: Check selected file types
-            $('.file-type-checkbox:checked').each(function() {
-                selectedFileTypes.push($(this).val());
-            });
-
-
-            if (selectedFileTypes.length === 0) {
-                alert("Please select a file type to download.");
-                return;
-            }
-
-            // Step 2: Loop through each checked row and get the name column value
-            $('.caseid:checked').each(function() {
-                var row = $(this).closest("tr");
-                var rowId = $(this).val();
-                var orderId = row.find("td:first-child span").text().trim();
-                var nameColumnValue = row.find("td:nth-child(2)").text().trim();
-
-                // Step 3: Remove existing extension before adding new one
-                var baseFileName = nameColumnValue.replace(/\.[^/.]+$/, ""); // Remove existing extension
-
-                selectedFileTypes.forEach(function(fileType) {
-                    var filePath = "";
-
-                    if (fileType === 'STL') {
-                        var stlFileName = baseFileName + ".stl"; // Correct STL file name
-                        filePath = "api/stl_files/" + encodeURIComponent(stlFileName);
-
-                        console.log(filePath)
-
-                        urls.push(filePath);
-                    }
-
-                    if (fileType === 'Finished') {
-                        var finishedFileName = baseFileName + ".zip"; // Correct ZIP file name
-                        filePath = "api/finished_files/" + encodeURIComponent(finishedFileName);
-                        console.log(filePath)
-                        urls.push(filePath);
-                    }
-                });
-            });
+      // Step 1: Check selected file types
+      $('.file-type-checkbox:checked').each(function() {
+        selectedFileTypes.push($(this).val());
+      });
 
 
-            if (urls.length === 0) {
-                alert("No files selected for download.");
-            } else {
-                downloadFiles(urls);
-            }
+      if (selectedFileTypes.length === 0) {
+        alert("Please select a file type to download.");
+        return;
+      }
+
+      // Step 2: Loop through each checked row and get the name column value
+      $('.caseid:checked').each(function() {
+        var row = $(this).closest("tr");
+        var rowId = $(this).val();
+        var orderId = row.find("td:first-child span").text().trim();
+        var nameColumnValue = row.find("td:nth-child(2)").text().trim();
+
+        // Step 3: Remove existing extension before adding new one
+        var baseFileName = nameColumnValue.replace(/\.[^/.]+$/, ""); // Remove existing extension
+
+        selectedFileTypes.forEach(function(fileType) {
+          var filePath = "";
+
+          if (fileType === 'STL') {
+            var stlFileName = baseFileName + ".stl"; // Correct STL file name
+            filePath = "api/stl_files/" + encodeURIComponent(stlFileName);
+
+            console.log(filePath)
+
+            urls.push(filePath);
+          }
+
+          if (fileType === 'Finished') {
+            var finishedFileName = baseFileName + ".zip"; // Correct ZIP file name
+            filePath = "api/finished_files/" + encodeURIComponent(finishedFileName);
+            console.log(filePath)
+            urls.push(filePath);
+          }
         });
+      });
 
-        // Function to trigger downloads
-        function downloadFiles(urls) {
-            urls.forEach(function(url, index) {
-                setTimeout(function() {
-                    var link = document.createElement('a');
-                    link.href = url;
-                    link.setAttribute('download', '');
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                }, index * 1000);
-            });
-        }
+
+      if (urls.length === 0) {
+        alert("No files selected for download.");
+      } else {
+        downloadFiles(urls);
+      }
     });
 
-    $(document).ready(function() {
-        // Select All Cases Checkbox Functionality
-        $("#select_all").on("click", function() {
-            var isChecked = $(this).prop("checked");
-            $(".caseid").prop("checked", isChecked); // Check or Uncheck all case checkboxes
-        });
+    // Function to trigger downloads
+    function downloadFiles(urls) {
+      urls.forEach(function(url, index) {
+        setTimeout(function() {
+          var link = document.createElement('a');
+          link.href = url;
+          link.setAttribute('download', '');
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }, index * 1000);
+      });
+    }
+  });
 
-        // If any case checkbox is unchecked, uncheck "Select All"
-        $(".caseid").on("click", function() {
-            if (!$(this).prop("checked")) {
-                $("#select_all").prop("checked", false);
-            } else if ($(".caseid:checked").length === $(".caseid").length) {
-                $("#select_all").prop("checked", true);
-            }
-        });
+  $(document).ready(function() {
+    // Select All Cases Checkbox Functionality
+    $("#select_all").on("click", function() {
+      var isChecked = $(this).prop("checked");
+      $(".caseid").prop("checked", isChecked); // Check or Uncheck all case checkboxes
     });
+
+    // If any case checkbox is unchecked, uncheck "Select All"
+    $(".caseid").on("click", function() {
+      if (!$(this).prop("checked")) {
+        $("#select_all").prop("checked", false);
+      } else if ($(".caseid:checked").length === $(".caseid").length) {
+        $("#select_all").prop("checked", true);
+      }
+    });
+  });
 </script>
 
 

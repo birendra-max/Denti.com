@@ -33,51 +33,6 @@ $clid = base64_decode($_GET['user_id']);
       <!-- Small boxes (Stat box) -->
       <?php include_once 'dashboard1.php' ?>
 
-
-      <!-- <div class="row">
-        <div class="col-2">
-          <div class="form-group">
-            <label>Selection Type</label><br>
-            <input type="checkbox" name="select_all" id="select_all" onclick='selects()' value="all"> Select All Cases
-          </div>
-        </div>
-        <div class="col-3">
-          <div class="form-group">
-            <label>Donwload</label>
-            <select class="form-control" id="download_file">
-              <option value="">Choose File Type</option>
-
-              <option value="Initial">Initial File</option>
-              <option value="STL">STL File</option>
-              <option value="Finished">Finished File</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-2">
-          <div class="form-group">
-            <label>Action</label><br>
-            <input type="button" name="donload_button" id="download_button" value="Donwload Now"
-              class="btn btn-primary">
-          </div>
-        </div>
-        <div class="col-2" style="display:none;">
-          <div class="form-group">
-            <label>Status</label>
-            <select name="filestatus" id="filestatus" class="form-control">
-              <option value="Rush">Redesign and Rush</option>
-            </select>
-
-          </div>
-        </div>
-        <div class="col-2">
-          <div class="form-group">
-            <label>Action</label><br>
-            <input type="button" name="redesign_button" id="redesign_button" onclick="openredesign()"
-              value="Send For Redesign" class="btn btn-primary">
-          </div>
-        </div>
-      </div> -->
-
       <?php
       if (isset($_GET['pageno'])) {
         $pageno = $_GET['pageno'];
@@ -91,50 +46,9 @@ $clid = base64_decode($_GET['user_id']);
       $total_pages = ceil($total_rows / $no_of_records_per_page);
       ?>
       <div class="card" style="padding: 1%;">
-        <!-- <div class="card-header">
-          <h3 class="card-title">
-            <i class="ion ion-clipboard mr-1"></i>
-            <?php echo $status ?> List
-          </h3>
-
-          <div class="card-tools">
-
-            <ul class="pagination pagination-sm">
-              <li class="page-item"><a
-                  href="?pageno=1&type=<?php echo base64_encode($status) ?>&clientid=<?php echo base64_encode($clid) ?>"
-                  class="page-link">&laquo; First</a></li>
-
-              <?php
-              $maxVisiblePages = 50;  // Maximum number of visible pages
-              $startPage = max(2, $pageno - floor($maxVisiblePages / 2));
-              $endPage = min($total_pages - 1, $startPage + $maxVisiblePages - 1);
-
-              if ($startPage > 2) {
-                echo '<li class="page-item"><a href="?pageno=2&clientid=' . base64_encode($clid) . '&type=' . base64_encode($status) . '" class="page-link">2</a></li>';
-                echo '<li class="page-item disabled"><span class="page-link">...</span></li>';
-              }
-
-              for ($i = $startPage; $i <= $endPage; $i++) {
-                echo '<li class="page-item ' . ($pageno == $i ? 'disabled' : '') . '">';
-                echo '<a href="?pageno=' . $i . '&clientid=' . base64_encode($clid) . '&type=' . base64_encode($status) . '" class="page-link">' . $i . '</a>';
-                echo '</li>';
-              }
-
-              if ($endPage < $total_pages - 1) {
-                echo '<li class="page-item disabled"><span class="page-link">...</span></li>';
-                echo '<li class="page-item"><a href="?pageno=' . ($total_pages - 1) . '&clientid=' . base64_encode($clid) . '&type=' . base64_encode($status) . '" class="page-link">' . ($total_pages - 1) . '</a></li>';
-              }
-              ?>
-              <li class="page-item"><a
-                  href="?pageno=<?php echo $total_pages; ?>&clientid=<?php echo base64_encode($clid) ?>&type=<?php echo base64_encode($status) ?>"
-                  class="page-link">&raquo; Last</a></li>
-            </ul>
-          </div>
-        </div> -->
-
 
         <div class="row">
-          <div class="col-3">
+          <div class="col-2">
             <div class="form-group">
               <label>Download</label>
               <div class="dropdown col-12">
@@ -143,7 +57,7 @@ $clid = base64_decode($_GET['user_id']);
                   aria-expanded="false">
                   Select File Type
                 </button>
-                <div class="dropdown-menu col-8 shadow-lg" aria-labelledby="dropdownMenuButton">
+                <div class="dropdown-menu col-11 shadow-lg" aria-labelledby="dropdownMenuButton">
                   <label class="dropdown-item">
                     <input type="checkbox" value="STL" class="cursor-pointer file-type-checkbox"
                       style="margin-right: 5px; " />
@@ -158,7 +72,7 @@ $clid = base64_decode($_GET['user_id']);
               </div>
             </div>
           </div>
-          <div class="col-3">
+          <div class="col-1">
             <div class="form-group">
               <label>Action</label><br>
               <input type="button" name="download_button" id="download_button" value="Download Now"

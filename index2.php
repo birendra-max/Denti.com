@@ -66,7 +66,7 @@ $clientid = $_SESSION['user_id'];
 
       <div class="card" style="padding: 1%;">
 
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-3">
             <div class="form-group">
               <label>Download</label>
@@ -92,6 +92,57 @@ $clientid = $_SESSION['user_id'];
             </div>
           </div>
           <div class="col-3">
+            <div class="form-group">
+              <label>Action</label><br>
+              <input type="button" name="download_button" id="download_button" value="Download Now"
+                class="btn btn-primary">
+            </div>
+          </div>
+
+          <div class="col-2" style="display:none;">
+            <div class="form-group">
+              <label>Status</label>
+              <select name="filestatus" id="filestatus" class="form-control">
+                <option value="Rush">Redesign and Rush</option>
+              </select>
+
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-group">
+              <label>Action</label><br>
+              <input type="button" name="redesign_button" id="redesign_button" onclick="openredesign()"
+                value="Send For Redesign" class="btn btn-primary">
+            </div>
+          </div>
+        </div> -->
+
+        <div class="row">
+          <div class="col-2">
+            <div class="form-group">
+              <label>Download</label>
+              <div class="dropdown col-12">
+                <button class="btn btn-white border border-2 border-primary dropdown-toggle w-100 text-left"
+                  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  Select File Type
+                </button>
+                <div class="dropdown-menu col-11 shadow-lg" aria-labelledby="dropdownMenuButton">
+                  <label class="dropdown-item">
+                    <input type="checkbox" value="STL" class="cursor-pointer file-type-checkbox"
+                      style="margin-right: 5px; " />
+                    STL File
+                  </label>
+                  <label class="dropdown-item">
+                    <input type="checkbox" value="Finished" class="cursor-pointer file-type-checkbox"
+                      style="margin-right: 5px; " />
+                    Finished File
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-1">
             <div class="form-group">
               <label>Action</label><br>
               <input type="button" name="download_button" id="download_button" value="Download Now"
@@ -301,7 +352,7 @@ $clientid = $_SESSION['user_id'];
 
           if (fileType === 'STL') {
             var stlFileName = baseFileName + ".stl"; // Correct STL file name
-            filePath = "api/stl_files/"+ encodeURIComponent(stlFileName);
+            filePath = "api/stl_files/" + encodeURIComponent(stlFileName);
 
             console.log(filePath)
 
