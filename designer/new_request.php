@@ -30,7 +30,9 @@ include 'header.php';
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
 
-
+  <?php
+  echo $_SESSION['user_id'];
+  ?>
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">

@@ -24,7 +24,7 @@ if (isset($_FILES['file']['name'])) {
     $success = "";
     $flag = 0;
     // $target_dir1 = "../api/stl_files/";
-    $target_dir1 = "../client/api/stl_files/";
+    $target_dir1 = "../api/stl_files/";
     $target_file1 = $target_dir1 . basename($_FILES["file"]["name"]);
     $imageFileType1 = strtolower(pathinfo($target_file1, PATHINFO_EXTENSION));
     $f_name = $_FILES["file"]["name"];
@@ -96,7 +96,7 @@ if (isset($_FILES['file']['name'])) {
       $success = "";
       $flag = 0;
       // $target_dir2 = "../api/finished_files/";
-      $target_dir2 = "../client/api/finished_files/";
+      $target_dir2 = "../api/finished_files/";
       $target_file2 = $target_dir2 . basename($_FILES["file"]["name"]);
       $f_name = $_FILES["file"]["name"];
       if (file_exists($target_file2)) {

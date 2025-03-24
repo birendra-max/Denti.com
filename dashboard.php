@@ -1,8 +1,6 @@
 <?php
 include 'header.php';
 $clientid = $_SESSION['user_id'];
-
-echo $clientid;
 ?>
 
 <script>

@@ -1,6 +1,7 @@
 <?php
 session_start();
 date_default_timezone_set("Asia/Kolkata");   //India time (GMT+5:30)
+
 $mysql_hostname = "localhost";
 $mysql_user = "root";
 $mysql_password = "";

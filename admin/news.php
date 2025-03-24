@@ -31,6 +31,7 @@ if (isset($_GET['id'])) {
 		echo "<script>alert('Sorry Something went Wrong.');window.location='news.php'</script>";
 	}
 }
+
 ?>
 
 

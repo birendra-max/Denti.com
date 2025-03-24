@@ -90,7 +90,7 @@ if (isset($_GET['stl_id_o']) && isset($_GET['stl_filename_o'])) {
 if (isset($_GET['finished_id_o'])) {
 	$finished_id = $_GET['finished_id_o'];
 	$finished_filename = urldecode($_GET['finished_filename_o']);
-	$file_path = "../client/api/finished_file" . $finished_filename;
+	$file_path = "../api/finished_file" . $finished_filename;
 
 	// Delete from database
 	$sql = "DELETE FROM orders_finished WHERE id = $finished_id";
@@ -195,7 +195,7 @@ if (isset($_GET['finished_id_o'])) {
 										?>
 											<a href="download_file.php?id=<?php echo urlencode($row['filename']) ?>" target="_blank"> <?php echo ($row['filename']); ?></a>
 										<?php } else { ?>
-											<a href="../client/api/files/<?php echo $row['user_id'] . '_' . $row['orderid'] . '/' . urlencode($row['filename']); ?>"> <?php echo $row['filename']; ?></a>
+											<a href="../api/files/<?php echo $row['user_id'] . '_' . $row['orderid'] . '/' . urlencode($row['filename']); ?>"> <?php echo $row['filename']; ?></a>
 
 										<?php } ?>
 										|| <?php echo $row['created_at']; ?>
@@ -277,7 +277,7 @@ if (isset($_GET['finished_id_o'])) {
 															<a href="download_stl.php?id=<?php echo urlencode($row22['filename']) ?>"><?php echo $row22['user_id'] . '_' . $row22['orderid'] . '/' . $row22['filename']; ?></a>
 														<?php } else { ?>
 
-															<a href="../client/api/stl_files/<?php echo  urlencode($row22['filename']); ?>"><?php echo $row22['filename'] ?></a>
+															<a href="../api/stl_files/<?php echo  $row22['filename']; ?>"><?php echo $row22['filename'] ?></a>
 
 														<?php } ?>
 													</td>
@@ -311,7 +311,7 @@ if (isset($_GET['finished_id_o'])) {
 											<a href="download_finished.php?id=<?php echo urlencode($row23['finished_file']) ?>"> <?php echo $row23['finished_file'] ?> || <?php echo $row23['created_at'] ?></a> || <a href="order_detail.php?orderid=<?php echo $orderid ?>&finished_o=1&finished_id_o=<?php echo $row23['id'] ?>&finished_filename_o=<?php echo $row23['finished_file'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure to delete this.')"> <i class="fas fa-trash"></i> Delete</a>
 										<?php 	} else { ?>
 
-											<a href="../client/api/finished_files/<?php echo $row['user_id'] . '_' . $row['orderid'] . '/' . urlencode($row23['finished_file']); ?>"> <?php echo $row23['finished_file'] ?> || <?php echo $row23['created_at'] ?></a> ||
+											<a href="../api/finished_files/<?php echo $row['user_id'] . '_' . $row['orderid'] . '/' . urlencode($row23['finished_file']); ?>"> <?php echo $row23['finished_file'] ?> || <?php echo $row23['created_at'] ?></a> ||
 											<a href="order_detail.php?orderid=<?php echo $orderid ?>&finished_o=1&finished_id_o=<?php echo $row23['id'] ?>&finished_filename_o=<?php echo urlencode($row23['finished_file']) ?>" class="btn btn-danger" onclick="return confirm('Are you sure to delete this.')"> <i class="fas fa-trash"></i> Delete</a>
 									<?php }
 									}
@@ -359,8 +359,8 @@ if (isset($_GET['finished_id_o'])) {
 								<div class="col-6">
 									<h4><b>Default Design Preferences</b></h4>
 									<?php
-									$email = $row['clientid'];
-									$sql2 = "SELECT * FROM user where em='$email'";
+									$email = $row['user_id'];
+									$sql2 = "SELECT * FROM user where user_id='$email'";
 									$res2 = mysqli_query($bd, $sql2);
 									$row2 = mysqli_fetch_array($res2);
 

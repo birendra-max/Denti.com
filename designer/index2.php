@@ -70,7 +70,7 @@ include 'header.php';
                   <input type="checkbox" name="caseid" class="caseid" id="caseid<?php echo $i ?>" value="<?php echo $i ?>">
                   <a href="order_detail.php?orderid=<?php echo $row['orderid'] ?>"><?php echo $row['orderid'] ?></a>
 
-                  <input type="hidden" id="initial<?php echo $i ?>" value="../client/api/files/<?php echo $row['user_id'] . '_' . $row['orderid'] . '/' . urlencode($row['filename']) ?>">
+                  <input type="hidden" id="initial<?php echo $i ?>" value="../api/files/<?php echo $row['user_id'] . '_' . $row['orderid'] . '/' . urlencode($row['filename']) ?>">
 
 
 
@@ -83,7 +83,7 @@ include 'header.php';
                   $row2 = mysqli_fetch_array($res2);
 
                   ?>
-                  <input type="hidden" id="finished_file<?php echo $i ?>" value="../client/api/finished_files/<?php echo urlencode($row2['finished_file']) ?>">
+                  <input type="hidden" id="finished_file<?php echo $i ?>" value="../api/finished_files/<?php echo urlencode($row2['finished_file']) ?>">
                   <?php
                   $orderid = $row['orderid'];
                   $sql23 = "SELECT * FROM orders_stl_files where orderid='$orderid'";
@@ -97,7 +97,7 @@ include 'header.php';
                   }
 
                   ?>
-                  <input type="hidden" size="5000" id="stl_file<?php echo $i ?>" value="../client/api/stl_files/<?php echo urlencode(implode("|", $st)); ?>">
+                  <input type="hidden" size="5000" id="stl_file<?php echo $i ?>" value="../api/stl_files/<?php echo urlencode(implode("|", $st)); ?>">
 
                 </td>
                 <td><?php echo $row['fname'] ?></td>
