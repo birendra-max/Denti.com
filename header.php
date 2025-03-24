@@ -10,7 +10,7 @@ $rowp = mysqli_fetch_assoc($rrp);
 
 $rrcp = mysqli_query($bd, "SELECT * FROM profile WHERE id=1");
 $rowcp = mysqli_fetch_assoc($rrcp);
-$em = $_SESSION['email'];
+$em = $_SESSION['user_id'];
 $uri_name = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
 ?>
 

@@ -1,6 +1,6 @@
 <?php
 include 'header.php';
-$em = $_SESSION['email'];
+$em = $_SESSION['user_id'];
 ?>
 
 <!-- Content Wrapper -->
@@ -67,9 +67,9 @@ $em = $_SESSION['email'];
           </thead>
           <tbody>
             <?php
-            $clientid = $_SESSION['email'];
+            $clientid = $_SESSION['user_id'];
             $i = 0;
-            $sql = "SELECT * FROM orders WHERE clientid='$clientid' AND status='New'";
+            $sql = "SELECT * FROM orders WHERE user_id='$clientid' AND status='New'";
             $res = mysqli_query($bd, $sql);
 
             while ($row = mysqli_fetch_array($res)) {
