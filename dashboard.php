@@ -101,7 +101,7 @@ $clientid = $_SESSION['user_id'];
 
 
                 <div class="form-group">
-                    <input type="checkbox" name="select_all" id="select_all" onclick='selects()' value="all"> Select All Cases
+                    <input type="checkbox" name="select_all" id="select_all" onclick='selects()' value="all"> Select All Orders
                 </div>
 
 
@@ -110,15 +110,15 @@ $clientid = $_SESSION['user_id'];
 
                         <thead>
                             <tr>
-                                <th>OrderID</th>
-                                <th>Name</th>
-                                <th>TAT</th>
-                                <th>Status</th>
-                                <th>Unit</th>
-                                <th>Tooth</th>
+                                <th>Order ID</th>
+                                <th>File Name</th>
+                                <th>Delivery Time</th>
+                                <th>Order Status</th>
+                                <th>Total Unit</th>
+                                <th>#Tooth</th>
                                 <th>Lab Name</th>
                                 <th style="position: relative;">
-                                    Date
+                                    USA Date
                                     <span id="datePickerIcon" style="cursor: pointer; float: right;">
                                         <i class="fas fa-calendar-alt"></i>
                                     </span>

@@ -16,7 +16,7 @@ function Total_row($bd, $status, $clid)
 
 <!-- Small boxes (Stat box) -->
 <div class="row" style="padding: 10px;">
-  <!-- New Cases -->
+  <!-- New Order -->
   <div class="col-lg-3 col-6">
     <a href="dashboard.php" class="small-box-footer">
       <div class="small-box">
@@ -29,7 +29,7 @@ function Total_row($bd, $status, $clid)
               echo $rowh['sm'];
               ?>
             </h3>
-            <p class="text-green">New Cases</p>
+            <p class="text-green">New Order</p>
           </div>
         </div>
         <div class="icon">
@@ -40,7 +40,7 @@ function Total_row($bd, $status, $clid)
     </a>
   </div>
 
-  <!-- Rush Cases -->
+  <!-- Rush Order -->
   <div class="col-lg-3 col-6">
     <a href="index2.php" class="small-box-footer">
       <div class="small-box bg-rush">
@@ -53,7 +53,7 @@ function Total_row($bd, $status, $clid)
               echo $rowh['sm'];
               ?>
             </h3>
-            <p class="text-black">Rush Cases</p>
+            <p class="text-black">Rush Order</p>
           </div>
         </div>
         <div class="icon">
@@ -64,7 +64,7 @@ function Total_row($bd, $status, $clid)
     </a>
   </div>
 
-  <!-- Completed Cases -->
+  <!-- Completed Order -->
   <div class="col-lg-3 col-6">
     <a href="pagination.php?type=<?php echo base64_encode('Completed') ?>&user_id=<?php echo base64_encode($clientid) ?>" class="small-box-footer">
       <div class="small-box bg-completed">
@@ -77,7 +77,7 @@ function Total_row($bd, $status, $clid)
               echo $rowh['sm'];
               ?>
             </h3>
-            <p class="text-chartreuse">Completed Cases</p>
+            <p class="text-chartreuse">Completed Order</p>
           </div>
         </div>
         <div class="icon">
@@ -88,7 +88,7 @@ function Total_row($bd, $status, $clid)
     </a>
   </div>
 
-  <!-- Hold Cases -->
+  <!-- Hold Order -->
   <div class="col-lg-3 col-6">
     <a href="pagination.php?type=<?php echo base64_encode('Hold') ?>&user_id=<?php echo base64_encode($clientid) ?>" class="small-box-footer">
       <div class="small-box bg-hold">
@@ -101,7 +101,7 @@ function Total_row($bd, $status, $clid)
               echo $rowh['sm'];
               ?>
             </h3>
-            <p class="text-red">Case On Hold</p>
+            <p class="text-red">Order On Hold</p>
           </div>
         </div>
         <div class="icon">
@@ -163,10 +163,10 @@ function Total_row($bd, $status, $clid)
     </a>
   </div>
 
-  <!-- All Cases -->
+  <!-- All Order -->
   <div class="col-lg-3 col-6">
     <a href="pagination.php?type=<?php echo base64_encode('All') ?>&user_id=<?php echo base64_encode($clientid) ?>" class="small-box-footer">
-      <div class="small-box bg-all-cases">
+      <div class="small-box bg-all-Order">
         <div class="inner text-center">
           <div class="circle-container">
             <h3 class="text-primary">
@@ -176,7 +176,7 @@ function Total_row($bd, $status, $clid)
               echo $rowh['sm'];
               ?>
             </h3>
-            <p class="text-primary">All Cases</p>
+            <p class="text-primary">All Order</p>
           </div>
         </div>
         <div class="icon">
@@ -187,7 +187,7 @@ function Total_row($bd, $status, $clid)
     </a>
   </div>
 
-  <!-- Canceled Cases -->
+  <!-- Canceled Order -->
   <div class="col-lg-3 col-6">
     <a href="pagination.php?type=<?php echo base64_encode('Cancel') ?>&user_id=<?php echo base64_encode($clientid) ?>" class="small-box-footer">
       <div class="small-box bg-cancel">
@@ -200,7 +200,7 @@ function Total_row($bd, $status, $clid)
               echo $rowh['sm'];
               ?>
             </h3>
-            <p class="text-red">Canceled Case</p>
+            <p class="text-red">Canceled Order</p>
           </div>
         </div>
         <div class="icon">
@@ -212,9 +212,9 @@ function Total_row($bd, $status, $clid)
   </div>
 </div>
 
-<!-- Yesterday's and Today's Cases -->
+<!-- Yesterday's and Today's Order -->
 <div class="row" style="padding: 10px;">
-  <!-- Yesterday's Cases -->
+  <!-- Yesterday's Order -->
   <div class="col-lg-3 col-6">
     <a href="index8.php" class="small-box-footer">
       <div class="small-box bg-white">
@@ -231,7 +231,7 @@ function Total_row($bd, $status, $clid)
               echo $cc;
               ?>
             </h3>
-            <p class="text-blue">Yesterday's Cases</p>
+            <p class="text-blue">Yesterday's Order</p>
           </div>
         </div>
         <div class="icon">
@@ -242,7 +242,7 @@ function Total_row($bd, $status, $clid)
     </a>
   </div>
 
-  <!-- Today's Cases -->
+  <!-- Today's Order -->
   <div class="col-lg-3 col-6">
     <a href="index10.php" class="small-box-footer">
       <div class="small-box bg-today">
@@ -259,7 +259,7 @@ function Total_row($bd, $status, $clid)
               echo $cc;
               ?>
             </h3>
-            <p class="text-teal">Today's Cases</p>
+            <p class="text-teal">Today's Order</p>
           </div>
         </div>
         <div class="icon">
