@@ -100,7 +100,7 @@ if (isset($_POST['submit'])) {
         padding: 5px 8px;
         outline: none;
         white-space: nowrap;
-        -webkit-user-select: none;
+        /* -webkit-user-select: none; */
         cursor: pointer;
         text-shadow: 1px 1px #fff;
         font-weight: 700;
@@ -454,18 +454,21 @@ if (isset($_POST['submit'])) {
 
     // Process files (both files and files inside folders)
 
+    var file_exists="";
+
     function processFiles(files) {
         // Clear previous table content
         $("#table_div").html(`
         <table class="table table-hover" style="text-align:center" id="progress_table">
             <thead>
                 <tr>
-                    <th style="width:7% !important;">Orderid</th>
-                    <th style="width:20% !important;">File</th>
-                    <th style="width:20% !important;">Product Type</th>
-                    <th style="width:7% !important;">Unit</th>
-                    <th style="width:20% !important;">Tooth</th>
+                    <th style="width:5% !important;">Order id</th>
+                    <th style="width:5% !important;">File</th>
+                    <th style="width:5% !important;">Product Type</th>
+                    <th style="width:3% !important;">Unit</th>
+                    <th style="width:5% !important;">Tooth</th>
                     <th style="width:20% !important;">Message</th>
+                    <th style="width:20% !important;">Error Message</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -478,28 +481,28 @@ if (isset($_POST['submit'])) {
 
             $("#progress_table tbody").append(`
             <tr id="tr${i}">
-                <td style="width:7% !important;">
+                <td style="width:5% !important;">
                     <input class="form-control" type="text" id="odid${i}" readonly>
                 </td>
-                <td style="width:20% !important;">
+                <td style="width:5% !important;">
                     <div class="progress" id="progress_bar${i}" style="display:none; height:auto;padding:5px;">
                         <div class="progress-bar bg-success" id="progress_bar_process${i}" role="progressbar" style="width:0%; height:auto;padding:5px;white-space:pre-wrap">0%</div>
                     </div>
                 </td>
-                <td style="width:20% !important;">
+                <td style="width:5% !important;">
                     <input class="form-control" type="text" id="p_typ${i}" readonly>
                     <input type="hidden" id="p_typ${i}">
                 </td>
-                <td style="width:5% !important;">
+                <td style="width:3% !important;">
                     <input class="form-control" type="text" id="u${i}" readonly>
                     <input type="hidden" id="u${i}">
                 </td>
-                <td style="width:20% !important;">
+                <td style="width:5% !important;">
                     <input type="text" id="t${i}" class="form-control" readonly>
                     <input type="hidden" id="t${i}">
                     <input type="hidden" name="orderid${i}" id="orderid${i}" class="form-control">
                 </td>
-                <td style="width:20% !important;">
+                <td style="width:10% !important;">
                     <textarea class="form-control" name="msg${i}" id="msg${i}" width="100%"></textarea>
                 </td>
                 <td id="error_message${i}" style="color:red; display:none;"></td>
@@ -518,12 +521,15 @@ if (isset($_POST['submit'])) {
                         var fileIndex = i; // Use the captured index for correct handling
 
                         if (response === 'exists') {
-                            var confirmUpload = confirm(`${fileName} already exists. Do you want to upload it again?`);
-                            if (confirmUpload) {
-                                uploadSingleFile(files[fileIndex], fileIndex);
-                            } else {
-                                window.location.reload();
-                            }
+                            // var confirmUpload = confirm(`${fileName} already exists. Do you want to upload it again?`);
+
+                            file_exists=`${fileName} already exists. Do you want to upload it again?`;
+
+                            // if (confirmUpload) {
+                            //     uploadSingleFile(files[fileIndex], fileIndex);
+                            // } else {
+                            //     window.location.reload();
+                            // }
                         } else {
                             uploadSingleFile(files[fileIndex], fileIndex);
                         }

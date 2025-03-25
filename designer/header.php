@@ -38,7 +38,7 @@ $uri_name = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
 
-  <link rel="shortcut icon" href="admin/<?php echo $rowcp['logo'] ?>" type="image/x-icon">
+  <link rel="shortcut icon" href="../public/images/dentigologo.png" type="image/x-icon">
 
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
@@ -95,7 +95,7 @@ $uri_name = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
     <nav class="navbar navbar-expand-sm navbar-light bg-dark fixed-top" style="background-color:#F2F2F2 !important">
       <div class="container-fluid">
         <a class="navbar-brand text-success" href="#">
-          <img src="../public/images/dentigologo.png" style="height: 50px;width: 150px">
+          <img src="../public/images/dentigologo.png" style="height: 65px; width: auto;">
         </a>
         <button class="navbar-toggler" type="button"
           data-toggle="collapse"

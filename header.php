@@ -38,7 +38,7 @@ $uri_name = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
 
-    <link rel="shortcut icon" href="../public/images/dentigologo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="public/images/dentigologo.png" type="image/x-icon">
 
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
