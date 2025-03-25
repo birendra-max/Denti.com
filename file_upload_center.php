@@ -73,7 +73,7 @@ if (isset($_POST['submit'])) {
     #drag_drop {
         background-color: #f9f9f9;
         border: #ccc 4px dashed;
-        line-height: 800px;
+        line-height: 750px;
         padding: 12px;
         font-size: 24px;
         text-align: center;

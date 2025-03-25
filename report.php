@@ -70,8 +70,10 @@ include 'header.php';
               </div>
             </div>
 
+
+
             <div class="row">
-              <div class="col-3">
+              <div class="col-2">
                 <div class="form-group">
                   <label>Download</label>
                   <div class="dropdown col-12">
@@ -80,7 +82,7 @@ include 'header.php';
                       aria-expanded="false">
                       Select File Type
                     </button>
-                    <div class="dropdown-menu col-8 shadow-lg" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-menu col-11 shadow-lg" aria-labelledby="dropdownMenuButton">
                       <label class="dropdown-item">
                         <input type="checkbox" value="STL" class="cursor-pointer file-type-checkbox"
                           style="margin-right: 5px; " />
@@ -95,7 +97,7 @@ include 'header.php';
                   </div>
                 </div>
               </div>
-              <div class="col-3">
+              <div class="col-1">
                 <div class="form-group">
                   <label>Action</label><br>
                   <input type="button" name="download_button" id="download_button" value="Download Now"
@@ -120,7 +122,6 @@ include 'header.php';
                 </div>
               </div>
             </div>
-
 
             <div class="form-group">
               <input type="checkbox" name="select_all" id="select_all" onclick='selects()' value="all"> Select All Cases
