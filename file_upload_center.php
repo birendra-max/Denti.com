@@ -289,27 +289,6 @@ if (isset($_POST['submit'])) {
                         <div id="table_div"></div>
 
                         <center>
-                            <!-- <div class="row" id="timed" style="display: none;">
-                                <div class="col-md-4"></div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <div class="radio-box">
-                                            <input type="radio" name="timeduration" value="Rush"> Rush
-                                            <label> <i class="fas fa-ambulance"></i> 1 -2 Hour </label>
-                                        </div>
-                                        <div class="radio-box">
-                                            <input type="radio" name="timeduration" value="Same Day"> Same Day
-                                            <label> <i class="fas fa-ambulance"></i> 6 Hour </label>
-                                        </div>
-                                        <div class="radio-box">
-                                            <input type="radio" name="timeduration" value="Next Day"> Next Day
-                                            <label> <i class="fas fa-ambulance"></i> 12 Hour </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-
-
                             <section>
                                 <div class="row" id="timed" style="display: none;">
                                     <div class="col-md-4"></div>
@@ -318,24 +297,24 @@ if (isset($_POST['submit'])) {
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" id="rush" name="timeduration" value="Rush" onclick="toggleRadio(this)">
                                                 <label class="form-check-label d-flex align-items-center" for="rush">
-                                                    <span class="radio-btn-container">
-                                                        <i class="fas fa-ambulance mr-2" style="font-size: 18px; color: #007bff;"></i> Rush - 1 - 2 Hour
+                                                    <span class="radio-btn-container fw-bold">
+                                                        <i class="fas fa-ambulance mr-2" style="font-size: 18px;"></i> Rush - 1 - 2 Hour
                                                     </span>
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" id="sameDay" name="timeduration" value="Same Day" onclick="toggleRadio(this)">
                                                 <label class="form-check-label d-flex align-items-center" for="sameDay">
-                                                    <span class="radio-btn-container">
-                                                        <i class="fas fa-ambulance mr-2" style="font-size: 18px; color: #007bff;"></i> Same Day - 6 Hour
+                                                    <span class="radio-btn-container fw-bold">
+                                                        <i class="fas fa-ambulance mr-2" style="font-size: 18px;"></i> Same Day - 6 Hour
                                                     </span>
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" id="nextDay" name="timeduration" value="Next Day" onclick="toggleRadio(this)">
                                                 <label class="form-check-label d-flex align-items-center" for="nextDay">
-                                                    <span class="radio-btn-container">
-                                                        <i class="fas fa-ambulance mr-2" style="font-size: 18px; color: #007bff;"></i> Next Day - 12 Hour
+                                                    <span class="radio-btn-container fw-bold">
+                                                        <i class="fas fa-ambulance mr-2" style="font-size: 18px;"></i> Next Day - 12 Hour
                                                     </span>
                                                 </label>
                                             </div>
@@ -353,10 +332,6 @@ if (isset($_POST['submit'])) {
                                     }
                                 </script>
 
-                                <!-- Include Bootstrap 4 or 5 CSS here -->
-                                <!-- Example: -->
-                                <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-
                                 <style>
                                     /* Custom radio button design */
                                     .form-check-input {
@@ -369,27 +344,31 @@ if (isset($_POST['submit'])) {
                                         display: block;
                                         position: relative;
                                         padding-left: 35px;
-                                        /* Create space for the radio button */
                                         font-size: 16px;
                                         cursor: pointer;
                                         padding: 10px 20px;
                                         border-radius: 25px;
                                         background-color: #fff;
-                                        border: 2px solid #007bff;
-                                        transition: background-color 0.3s ease, color 0.3s ease;
+                                        border: 2px solid #ccc;
+                                        /* Default border color */
+                                        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
                                     }
 
+                                    /* Hover effect for label */
                                     .form-check-label:hover {
                                         background-color: #007bff;
                                         color: #fff;
+                                        border-color: #007bff;
                                     }
 
+                                    /* Checked state of the label */
                                     .form-check-input:checked+.form-check-label {
                                         background-color: #007bff;
                                         color: white;
                                         border-color: #007bff;
                                     }
 
+                                    /* Container for the radio button icon */
                                     .form-check-label .radio-btn-container {
                                         display: inline-block;
                                         padding-left: 40px;
@@ -397,23 +376,7 @@ if (isset($_POST['submit'])) {
                                         font-size: 16px;
                                     }
 
-                                    .form-check-input:checked+.form-check-label .radio-btn-container::before {
-                                        content: '';
-                                        position: absolute;
-                                        left: 10px;
-                                        top: 50%;
-                                        transform: translateY(-50%);
-                                        width: 20px;
-                                        height: 20px;
-                                        border-radius: 50%;
-                                        background-color: white;
-                                        border: 2px solid #007bff;
-                                    }
-
-                                    .form-check-input:checked+.form-check-label .radio-btn-container {
-                                        padding-left: 40px;
-                                    }
-
+                                    /* Default radio button appearance */
                                     .form-check-label .radio-btn-container::before {
                                         content: '';
                                         position: absolute;
@@ -423,8 +386,19 @@ if (isset($_POST['submit'])) {
                                         width: 20px;
                                         height: 20px;
                                         border-radius: 50%;
-                                        background-color: #007bff;
+                                        background-color: #fff;
+                                        /* Default radio button color */
                                         border: 2px solid #007bff;
+                                        /* Default border color */
+                                        transition: background-color 0.3s ease, border-color 0.3s ease;
+                                    }
+
+                                    /* Radio button appearance when checked */
+                                    .form-check-input:checked+.form-check-label .radio-btn-container::before {
+                                        background-color: #000;
+                                        /* Black color for the radio button */
+                                        border-color: #000;
+                                        /* Black border when checked */
                                     }
 
                                     .form-check-inline {
