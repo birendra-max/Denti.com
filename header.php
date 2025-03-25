@@ -182,7 +182,6 @@ $uri_name = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                                 <a class="dropdown-item" href="profile.php">Profile</a>
-                                <a class="dropdown-item" href="pass.php">Change Password</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="logout.php">Sign Out</a>
                             </div>
