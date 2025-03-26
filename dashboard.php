@@ -119,55 +119,11 @@ $clientid = $_SESSION['user_id'];
                                 <th>Lab Name</th>
                                 <th style="position: relative;">
                                     USA Date
-                                    <span id="datePickerIcon" style="cursor: pointer; float: right;">
-                                        <i class="fas fa-calendar-alt"></i>
-                                    </span>
-                                    <!-- Datepicker will be placed inside this div -->
-                                    <div id="datePickerContainer" style="position: absolute; top: 30px; left: 0; display: none; background: white; z-index: 9999;"></div>
                                 </th>
                                 <th>Message</th>
                             </tr>
                         </thead>
 
-                        <script>
-                            $(document).ready(function() {
-                                // Initialize Bootstrap Datepicker with custom styling
-                                $("#datePickerContainer").datepicker({
-                                    format: "yyyy-mm-dd",
-                                    autoclose: true,
-                                    todayHighlight: true
-                                }).on("changeDate", function(e) {
-                                    let selectedDate = $("#datePickerContainer").datepicker("getFormattedDate");
-
-                                    // Hide the date picker
-                                    $("#datePickerContainer").hide();
-
-                                    // Fetch filtered data via AJAX
-                                    $.ajax({
-                                        url: "fetch_orders.php",
-                                        type: "POST",
-                                        data: {
-                                            date: selectedDate
-                                        },
-                                        success: function(response) {
-                                            $("#example1 tbody").html(response); // Update the table
-                                        }
-                                    });
-                                });
-
-                                // Show datepicker below the icon on click
-                                $("#datePickerIcon").click(function() {
-                                    $("#datePickerContainer").toggle();
-                                });
-
-                                // Hide when clicking outside
-                                $(document).click(function(e) {
-                                    if (!$(e.target).closest("#datePickerIcon, #datePickerContainer").length) {
-                                        $("#datePickerContainer").hide();
-                                    }
-                                });
-                            });
-                        </script>
 
                         <tbody>
                             <?php

@@ -454,7 +454,7 @@ if (isset($_POST['submit'])) {
 
     // Process files (both files and files inside folders)
 
-    var file_exists="";
+    var file_exists = "";
 
     function processFiles(files) {
         // Clear previous table content
@@ -468,7 +468,6 @@ if (isset($_POST['submit'])) {
                     <th style="width:3% !important;">Unit</th>
                     <th style="width:5% !important;">Tooth</th>
                     <th style="width:20% !important;">Message</th>
-                    <th style="width:20% !important;">Error Message</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -521,15 +520,15 @@ if (isset($_POST['submit'])) {
                         var fileIndex = i; // Use the captured index for correct handling
 
                         if (response === 'exists') {
-                            // var confirmUpload = confirm(`${fileName} already exists. Do you want to upload it again?`);
+                            var confirmUpload = confirm(`${fileName} already exists. Do you want to upload it again?`);
 
-                            file_exists=`${fileName} already exists. Do you want to upload it again?`;
+                            // file_exists=`${fileName} already exists. Do you want to upload it again?`;
 
-                            // if (confirmUpload) {
-                            //     uploadSingleFile(files[fileIndex], fileIndex);
-                            // } else {
-                            //     window.location.reload();
-                            // }
+                            if (confirmUpload) {
+                                uploadSingleFile(files[fileIndex], fileIndex);
+                            } else {
+                                window.location.reload();
+                            }
                         } else {
                             uploadSingleFile(files[fileIndex], fileIndex);
                         }

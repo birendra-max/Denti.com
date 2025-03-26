@@ -269,6 +269,33 @@ function Total_row($bd, $status, $clid)
       </div>
     </a>
   </div>
+
+  <div class="col-lg-3 col-6">
+    <a href="weeklycase.php" class="small-box-footer">
+      <div class="small-box bg-today">
+        <div class="inner text-center">
+          <div class="circle-container">
+            <h3 class="text-teal">
+              <?php
+              $tdate = date('d-M-Y');
+              $cc = 0;
+              $resulth = mysqli_query($bd, "SELECT * FROM orders  WHERE user_id='$clientid' and STR_TO_DATE(created_at, '%Y-%m-%d') >= CURDATE() - INTERVAL 7 DAY");
+              while ($rowh = mysqli_fetch_array($resulth)) {
+                $cc++;
+              }
+              echo $cc;
+              ?>
+            </h3>
+            <p class="text-black">Weekly Order</p>
+          </div>
+        </div>
+        <div class="icon">
+          <i class="fas fa-money-bill-alt"></i>
+        </div>
+        <i class="fas fa-arrow-circle-right text-teal" style="margin-top: 2%;"></i>
+      </div>
+    </a>
+  </div>
 </div>
 
 <style>
