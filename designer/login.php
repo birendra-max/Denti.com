@@ -111,6 +111,8 @@ if (isset($_POST['submit'])) {
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="shortcut icon" href="public/images/dentigologo.png" type="image/x-icon">
+
     <style type="text/css">
         .divider:after,
         .divider:before {
@@ -314,7 +316,7 @@ if (isset($_POST['submit'])) {
                                 Email address
                             </label>
                             <input class="form-control custom-input" id="form2Example17" name="id"
-                                placeholder="Enter your email id" type="email"  required />
+                                placeholder="Enter your email id" type="email" required />
                         </div>
 
                         <div class="form-group">
