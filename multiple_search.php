@@ -147,15 +147,15 @@ include 'header.php';
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th>OrderID</th>
-                    <th>Name</th>
-                    <th>Turn Around Time</th>
-                    <th width="100">Status</th>
-                    <th>Unit</th>
-                    <th>Tooth</th>
+                    <th>Order ID</th>
+                    <th>File Name</th>
+                    <th>Delivary Time</th>
+                    <th width="100">Order Status</th>
+                    <th>Total Unit</th>
+                    <th>#Tooth</th>
 
                     <th>Lab Name</th>
-                    <th>Date</th>
+                    <th>USA Date</th>
                     <th>Message</th>
                   </tr>
                 </thead>

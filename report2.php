@@ -5,7 +5,6 @@ $odate = date("d-M-Y");
 $dd = explode(",", $d);
 $f = 0;
 
-
 $sdate = date("d-M-Y", strtotime($dd[0]));
 $edate = date("d-M-Y", strtotime($dd[1]));
 
@@ -16,14 +15,14 @@ echo "<h3 class='text-center btn btn-warning'>From : " . $sdate . " To " . $edat
     <table id="example1" class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>OrderID</th>
-                <th>Name</th>
-                <th>TAT</th>
-                <th width="100">Status</th>
-                <th>Unit</th>
-                <th>Tooth</th>
+                <th>Order ID</th>
+                <th>File Name</th>
+                <th>Delivary Time</th>
+                <th width="100">Order Status</th>
+                <th>Total Unit</th>
+                <th>#Tooth</th>
                 <th>Lab Name</th>
-                <th>Date</th>
+                <th>USA Date</th>
                 <th>Message</th>
             </tr>
         </thead>
@@ -35,8 +34,11 @@ echo "<h3 class='text-center btn btn-warning'>From : " . $sdate . " To " . $edat
             $tdate = date('d-M-Y');
             $sql = "SELECT * FROM orders where user_id='$clientid'";
             $res = mysqli_query($bd, $sql);
-            
+
             while ($row = mysqli_fetch_array($res)) {
+                print_r(strtotime(date("d-M-Y", strtotime($row["created_at"]))));
+                die();
+
                 if (strtotime($sdate) <= strtotime(date("d-M-Y", strtotime($row["created_at"]))) and strtotime(date("d-M-Y", strtotime($row["created_at"]))) <= strtotime($edate)) {
 
             ?>
