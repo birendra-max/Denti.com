@@ -70,20 +70,20 @@ function Total_row($bd, $status, $clid)
       <div class="small-box bg-completed">
         <div class="inner text-center">
           <div class="circle-container">
-            <h3 class="text-chartreuse">
+            <h3 class="text-green">
               <?php
               $resulth = mysqli_query($bd, "SELECT count(*) as sm FROM orders WHERE user_id='$clientid' and status='Completed'");
               $rowh = mysqli_fetch_array($resulth);
               echo $rowh['sm'];
               ?>
             </h3>
-            <p class="text-chartreuse">Completed Order</p>
+            <p class="text-green">Completed Order</p>
           </div>
         </div>
         <div class="icon">
           <i class="fas fa-dollar-sign"></i>
         </div>
-        <i class="fas fa-arrow-circle-right text-chartreuse"></i>
+        <i class="fas fa-arrow-circle-right text-green"></i>
       </div>
     </a>
   </div>

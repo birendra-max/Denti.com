@@ -257,7 +257,7 @@ if (isset($_POST['submit'])) {
                     </h1>
                     <br>
                     <p>
-                        Welcome Dentigolab, you can log in to your portal for sharing file.
+                        Welcome Dentigo, you can log in to your portal for sharing file.
                     </p>
 
                 </div>
