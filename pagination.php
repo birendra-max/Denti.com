@@ -195,7 +195,7 @@ $clid = base64_decode($_GET['user_id']);
                   <td> <i class="fas fa-clock"> </i>
                     <div class="progress">
                       <div class="progress-bar <?php if ($row['status'] == 'New')
-                                                  echo 'bg-white';
+                                                  echo 'bg-gradient-warning';
                                                 if ($row['status'] == 'Cancel')
                                                   echo 'bg-danger';
                                                 if ($row['status'] == 'Completed')
@@ -208,7 +208,7 @@ $clid = base64_decode($_GET['user_id']);
                                                   echo 'bg-warning'; ?>" style="width:<?php if ($row['status'] == 'New')
                                                                                         echo '100%';
                                                                                       if ($row['status'] == 'Cancel')
-                                                                                        echo '40%';
+                                                                                        echo '100%';
                                                                                       if ($row['status'] == 'Completed')
                                                                                         echo '100%';
                                                                                       if ($row['status'] == 'QC Required')

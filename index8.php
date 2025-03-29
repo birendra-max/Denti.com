@@ -156,13 +156,13 @@ $clientid = $_SESSION['user_id'];
                                                                                                   ?></td>
                     <td> <i class="fas fa-clock"> </i>
                       <div class="progress">
-                        <div class="progress-bar <?php if ($row['status'] == 'New') echo 'bg-white';
+                        <div class="progress-bar <?php if ($row['status'] == 'New') echo 'bg-gradient-warning';
                                                   if ($row['status'] == 'Cancel') echo 'bg-danger';
                                                   if ($row['status'] == 'Completed') echo 'bg-success';
                                                   if ($row['status'] == 'QC Required') echo 'bg-primary';
                                                   if ($row['status'] == 'Hold') echo 'bg-danger';
                                                   if ($row['status'] == 'Redesign') echo 'bg-warning'; ?>" style="width:<?php if ($row['status'] == 'New') echo '100%';
-                                                                                                                        if ($row['status'] == 'Cancel') echo '40%';
+                                                                                                                        if ($row['status'] == 'Cancel') echo '100%';
                                                                                                                         if ($row['status'] == 'Completed') echo '100%';
                                                                                                                         if ($row['status'] == 'QC Required') echo '90%';
                                                                                                                         if ($row['status'] == 'Hold') echo '50%';
