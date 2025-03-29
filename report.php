@@ -37,9 +37,6 @@ include 'header.php';
       <div class="row">
         <div class="col-12">
           <div class="card" style="padding: 2%;">
-            <div class="card-header">
-              <h3 class="card-title">Report</h3>
-            </div>
             <!-- /.card-header -->
 
             <div class="row mt-4">
