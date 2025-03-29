@@ -192,34 +192,34 @@ $clid = base64_decode($_GET['user_id']);
                                                                                                   echo "12 Hour <i class='fas fa-moon' style='font-size:18px'></i>";
                                                                                                 }
                                                                                                 ?></td>
-                  <td>
-                    <div class="btn <?php if ($row['status'] == 'New')
-                                      echo 'bg-white';
-                                    if ($row['status'] == 'Cancel')
-                                      echo 'bg-danger';
-                                    if ($row['status'] == 'Completed')
-                                      echo 'bg-success';
-                                    if ($row['status'] == 'QC Required')
-                                      echo 'bg-info';
-                                    if ($row['status'] == 'Hold')
-                                      echo 'bg-danger';
-                                    if ($row['status'] == 'Redesign')
-                                      echo 'bg-warning';
-                                    if ($row['status'] == 'progress')
-                                      echo 'bg-default'; ?>" style="width:<?php if ($row['status'] == 'New')
-                                                                            echo '100%';
-                                                                          if ($row['status'] == 'Cancel')
-                                                                            echo '100%';
-                                                                          if ($row['status'] == 'Completed')
-                                                                            echo '100%';
-                                                                          if ($row['status'] == 'QC Required')
-                                                                            echo '100%';
-                                                                          if ($row['status'] == 'Hold')
-                                                                            echo '100%';
-                                                                          if ($row['status'] == 'Redesign')
-                                                                            echo '100%';
-                                                                          if ($row['status'] == 'progress')
-                                                                            echo '100%'; ?>"> <?php echo $row['status'] ?> </div>
+                  <td> <i class="fas fa-clock"> </i>
+                    <div class="progress">
+                      <div class="progress-bar <?php if ($row['status'] == 'New')
+                                                  echo 'bg-white';
+                                                if ($row['status'] == 'Cancel')
+                                                  echo 'bg-danger';
+                                                if ($row['status'] == 'Completed')
+                                                  echo 'bg-success';
+                                                if ($row['status'] == 'QC Required')
+                                                  echo 'bg-primary';
+                                                if ($row['status'] == 'Hold')
+                                                  echo 'bg-danger';
+                                                if ($row['status'] == 'Redesign')
+                                                  echo 'bg-warning'; ?>" style="width:<?php if ($row['status'] == 'New')
+                                                                                        echo '100%';
+                                                                                      if ($row['status'] == 'Cancel')
+                                                                                        echo '40%';
+                                                                                      if ($row['status'] == 'Completed')
+                                                                                        echo '100%';
+                                                                                      if ($row['status'] == 'QC Required')
+                                                                                        echo '90%';
+                                                                                      if ($row['status'] == 'Hold')
+                                                                                        echo '50%';
+                                                                                      if ($row['status'] == 'Redesign')
+                                                                                        echo '100%'; ?>">
+                        <?php echo $row['status'] ?>
+                      </div>
+                    </div>
                   </td>
                   <td><?php echo $row['unit'] ?></td>
                   <td><?php echo implode("-", explode(",", $row['tooth'])) ?></td>

@@ -199,7 +199,7 @@ $clientid = $_SESSION['user_id'];
                                                                                                                     echo "12 Hour <i class='fas fa-moon' style='font-size:18px'></i>";
                                                                                                                 }
                                                                                                                 ?></td>
-                                    <td>
+                                    <!-- <td>
                                         <div class="">
                                             <div class=" <?php if ($row['status'] == 'New')
                                                                 echo 'bg-white';
@@ -225,6 +225,35 @@ $clientid = $_SESSION['user_id'];
                                                                                                     if ($row['status'] == 'Redesign')
                                                                                                         echo '100%'; ?>">
                                                 <h3 class="btn bg-empty" style="width:100%;border-radius: 20px; "><i class="fas fa-clock"> </i><?php echo $row['status'] ?></h3>
+                                            </div>
+                                        </div>
+                                    </td> -->
+                                    <td> <i class="fas fa-clock"> </i>
+                                        <div class="progress">
+                                            <div class="progress-bar <?php if ($row['status'] == 'New')
+                                                                            echo 'bg-white';
+                                                                        if ($row['status'] == 'Cancel')
+                                                                            echo 'bg-danger';
+                                                                        if ($row['status'] == 'Completed')
+                                                                            echo 'bg-success';
+                                                                        if ($row['status'] == 'QC Required')
+                                                                            echo 'bg-primary';
+                                                                        if ($row['status'] == 'Hold')
+                                                                            echo 'bg-danger';
+                                                                        if ($row['status'] == 'Redesign')
+                                                                            echo 'bg-warning'; ?>" style="width:<?php if ($row['status'] == 'New')
+                                                                                            echo '100%';
+                                                                                        if ($row['status'] == 'Cancel')
+                                                                                            echo '40%';
+                                                                                        if ($row['status'] == 'Completed')
+                                                                                            echo '100%';
+                                                                                        if ($row['status'] == 'QC Required')
+                                                                                            echo '90%';
+                                                                                        if ($row['status'] == 'Hold')
+                                                                                            echo '50%';
+                                                                                        if ($row['status'] == 'Redesign')
+                                                                                            echo '100%'; ?>">
+                                                <?php echo $row['status'] ?>
                                             </div>
                                         </div>
                                     </td>
