@@ -223,7 +223,7 @@ include 'header.php';
                   }
                   ?>
                 </tbody>
-                <tfoot>
+                <!-- <tfoot>
                   <tr>
                     <th>orderID</th>
                     <th>Name</th>
@@ -236,7 +236,7 @@ include 'header.php';
                     <th>Date</th>
                     <th>Message</th>
                   </tr>
-                </tfoot>
+                </tfoot> -->
 
               </table>
             </div>
