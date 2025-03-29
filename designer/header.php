@@ -95,7 +95,7 @@ $uri_name = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
     <nav class="navbar navbar-expand-sm navbar-light bg-dark fixed-top" style="background-color:#F2F2F2 !important">
       <div class="container-fluid">
         <a class="navbar-brand text-success" href="#">
-          <img src="../public/images/dentigologo.png" style="height: 65px; width: auto;">
+          <img src="../public/images/dentigologo1.png" style="height: 65px; width: auto;">
         </a>
         <button class="navbar-toggler" type="button"
           data-toggle="collapse"
