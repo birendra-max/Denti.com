@@ -292,12 +292,12 @@ $rowp = mysqli_fetch_assoc($rrp);
                     <p>Client List</p>
                   </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a href="aduser.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Activate/Deactivate Client </p>
                   </a>
-                </li>
+                </li> -->
                 <!--  <li class="nav-item">
                 <a href="donwline.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

@@ -86,11 +86,12 @@ include 'header.php';
 												<?php
 												if (($row['acpinid'] == 1)) {
 												?>
-													<td><button class='btn btn-success'>Activated</button></td>
+													<td><button class='btn btn-danger' onclick="update_status(0, '<?php echo $row['id']; ?>')">Deactivate</button></td>
 												<?php
 												} else {
 												?>
-													<td><button class='btn btn-danger'>Not Activate</button></td>
+
+													<td><button class='btn btn-success' onclick="update_status(1, '<?php echo $row['id']; ?>')">Activated</button></td>
 												<?php
 												}
 												?>
@@ -117,6 +118,35 @@ include 'header.php';
 	</section>
 </div>
 
+<script>
+	function update_status(status, id) {
+		let obj = {
+			status: status,
+			id: id,
+		}
+
+		let json_d = JSON.stringify(obj);
+		$.ajax({
+			type: "POST",
+			url: "update_status.php",
+			data:{
+				data: json_d,
+			},
+			contentType: "application/x-www-form-urlencoded",
+			success: function(data) {
+				if (data == 'success') {
+					alert("Status updated successfully");
+					window.location.reload();
+				} else {
+					alert("Error in updating status");
+				}
+			},
+			error: function(data) {
+				alert("Error in updating status");
+			}
+		})
+	}
+</script>
 
 <?php
 include 'footer.php';

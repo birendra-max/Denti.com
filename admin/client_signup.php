@@ -15,7 +15,7 @@
 	$rowwc = mysqli_fetch_assoc($rqc);
 	$sssc = $rowwc['cnt'];
 	if ($sssc < 1) {
-		if (mysqli_query($bd, "INSERT INTO user(id,name,user_id,mobile,labname,occlusion,password,status,todaydate,anatomy,pontic,remark,contact,acpinid,pic) VALUES('$id','$name','$user_id','$mobile','$labname','$occlusion','" . md5($pass_w) . "','active','$tdate','$anatomy','$pontic','$remark','$contact','0','')")) {
+		if (mysqli_query($bd, "INSERT INTO user(id,name,user_id,mobile,labname,occlusion,password,status,todaydate,anatomy,pontic,remark,contact,acpinid,pic) VALUES('$id','$name','$user_id','$mobile','$labname','$occlusion','" . md5($pass_w) . "','active','$tdate','$anatomy','$pontic','$remark','$contact','1','')")) {
 
 	?>
    		<script>
