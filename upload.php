@@ -22,7 +22,8 @@ if (isset($_FILES['file']['name']) && isset($_SESSION['userid'])) {
     }
 
     if ($okay) {
-        if (strtolower($name[1]) != 'zip') {
+
+        if (!preg_match('/[\w-]+\.zip/', $filename)) {
             echo "The file you are trying to upload is not a .zip file. Please try again.";
             exit;
         }

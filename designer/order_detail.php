@@ -191,11 +191,11 @@ if (isset($_GET['finished_id_o'])) {
 									<div class="col-7">
 										<label>Initial Scan : </label>
 										<?php
-										if (strpos($row['filename'], "#") > 0) {
+										if (strpos($row['fname'], "#") > 0) {
 										?>
-											<a href="download_file.php?id=<?php echo urlencode($row['filename']) ?>" target="_blank"> <?php echo ($row['filename']); ?></a>
+											<a href="download_file.php?id=<?php echo urlencode($row['fname']) ?>" target="_blank"> <?php echo ($row['fname']); ?></a>
 										<?php } else { ?>
-											<a href="../api/files/<?php echo $row['user_id'] . '_' . $row['orderid'] . '/' . urlencode($row['filename']); ?>"> <?php echo $row['filename']; ?></a>
+											<a href="../api/files/<?php echo $row['user_id'] . '_' . $row['orderid'] . '/' . urlencode($row['fname']); ?>"> <?php echo $row['fname']; ?></a>
 
 										<?php } ?>
 										|| <?php echo $row['created_at']; ?>

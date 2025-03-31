@@ -1,0 +1,622 @@
+<?xml version="1.0"?>
+<DentalContainer version="2023-1">
+  <Object name="MainObject" type="TDM_Container">
+    <Object name="OrderList" type="TDM_List_Order">
+      <List name="Items">
+        <Object type="TDM_Item_Order">
+          <Property name="IntOrderID" value="38903-SANDO-A1.5"/>
+          <Property name="ExtOrderID" value=""/>
+          <Property name="NumOrderID" value="73411622316635916"/>
+          <Property name="ImportOrderID" value=""/>
+          <Property name="ClientID" value="734116223"/>
+          <Property name="ClientOrderNo" value=""/>
+          <Property name="ClientContactPerson" value=""/>
+          <Property name="OrderImportanceID" value="oiNormal"/>
+          <Property name="Patient_RefNo" value=""/>
+          <Property name="Patient_FirstName" value=""/>
+          <Property name="Patient_LastName" value=""/>
+          <Property name="PatientGuid" value=""/>
+          <Property name="DeliveryAddress1" value=""/>
+          <Property name="DeliveryAddress2" value=""/>
+          <Property name="DeliveryZip" value=""/>
+          <Property name="DeliveryCity" value=""/>
+          <Property name="DeliveryState" value=""/>
+          <Property name="DeliveryCountryID" value=""/>
+          <Property name="DeliveryType" value=""/>
+          <Property name="ShipToDeliveryAddress" value="False"/>
+          <Property name="ShipToDifferentAddress" value="False"/>
+          <Property name="OrderComments" value=""/>
+          <Property name="CreatedFromApp" value="appDentalDesigner"/>
+          <Property name="RelativePos" value="True"/>
+          <Property name="OperatorID" value=""/>
+          <Property name="DesignModuleID" value="DentalDesigner"/>
+          <Property name="ModelDesignModule" value="mdmModelBuilderExpress"/>
+          <Property name="ScanModuleID" value="ModelBuilder"/>
+          <Property name="FaceScanModuleID" value=""/>
+          <Property name="OriginalOrderID" value=""/>
+          <Property name="Customer" value="999273927"/>
+          <Property name="Items" value="Unsectioned model, Antagonist model, Die 20, Crown 20"/>
+          <Property name="ManufName" value="MDS/999273927"/>
+          <Property name="OperatorName" value="Tech 01"/>
+          <Property name="CacheMaterialName" value="&quot;LAVA™ ULTIMATE&quot;,&quot;Model Material (Configuration_01)&quot;"/>
+          <Property name="CacheColor" value=""/>
+          <Property name="CacheMaxScanDate" value="0"/>
+          <Property name="OrderRelativePositionClass" value="orpSectioned"/>
+          <Property name="ShipToERPCustNo" value=""/>
+          <Property name="ERPCustomerNo" value=""/>
+          <Property name="ShipToID" value=""/>
+          <Property name="ModelManufacturingID" value="Configuration_01_DigitalModel"/>
+          <Property name="ScanSource" value="ssImportPLY"/>
+          <Property name="ImprovementProgramSendDate" value="0"/>
+          <Property name="GroupFolder" value=""/>
+          <Property name="TraySystemType" value="stNone"/>
+        </Object>
+      </List>
+    </Object>
+    <Object name="ModelJobList" type="TDM_List_ModelJob">
+      <List name="Items">
+        <Object type="TDM_Item_ModelJob">
+          <Property name="ModelJobID" value="MJ0794F0FA7A19436DB8053F425FDFBB07"/>
+          <Property name="OrderID" value="38903-SANDO-A1.5"/>
+        </Object>
+        <Object type="TDM_Item_ModelJob">
+          <Property name="ModelJobID" value="MJ95C640D2CA7C4CBE8B2D32764E5E47A7"/>
+          <Property name="OrderID" value="38903-SANDO-A1.5"/>
+        </Object>
+      </List>
+    </Object>
+    <Object name="ModelElementList" type="TDM_List_ModelElement">
+      <List name="Items">
+        <Object type="TDM_Item_ModelElement">
+          <Property name="ModelElementID" value="MED7489633E971460EA497D28C21DE2C5D"/>
+          <Property name="ModelJobID" value="MJ0794F0FA7A19436DB8053F425FDFBB07"/>
+          <Property name="MaterialID" value="77997_LAVA ULTIMATE"/>
+          <Property name="ColorID" value=""/>
+          <Property name="ProcessStatusID" value="psModelled"/>
+          <Property name="AltProcessStatusID" value="psModelled"/>
+          <Property name="ProcessLockID" value="plReady"/>
+          <Property name="ManufacturingProcessID" value="2749635518_Argen_Emax"/>
+          <Property name="ManufacturerID" value="1308013550"/>
+          <Property name="ModelHeight" value="10.4448757"/>
+          <Property name="ModelVolume" value="249.524155"/>
+          <Property name="ModelBoundingBoxMin" value=" 1.91360366344452E+0000; -4.99075937271118E+0000; -7.18786048889160E+0000;"/>
+          <Property name="ModelBoundingBoxMax" value=" 1.03912992477417E+0001;  3.50970387458801E+0000;  3.47522544860840E+0000;"/>
+          <Property name="ModelTransformation" value=""/>
+          <Property name="ModelFilename" value="CAD\38903-SANDO-A1.5 0.dcm"/>
+          <Property name="Location1" value=""/>
+          <Property name="Location2" value=""/>
+          <Property name="Location3" value=""/>
+          <Property name="Location4" value=""/>
+          <Property name="VirtualItem" value="False"/>
+          <Property name="ModelComment" value=""/>
+          <Property name="CreateDate" value="1741358718"/>
+          <Property name="DeliveryDate" value="1741305600"/>
+          <Property name="ShippingDate" value="1741305600"/>
+          <Property name="ReceiveDate" value="1741305600"/>
+          <Property name="ModelActive" value="True"/>
+          <Property name="WasSent" value="False"/>
+          <Property name="Items" value="Crown 20"/>
+          <Property name="ManufName" value="MDS"/>
+          <Property name="CacheMaterialName" value="LAVA™ ULTIMATE"/>
+          <Property name="CacheColor" value=""/>
+          <Property name="CAMBlankID" value=""/>
+          <Property name="CAMBlankBatchID" value=""/>
+          <Property name="CAMJobID" value=""/>
+          <Property name="CAMJobName" value=""/>
+          <Property name="CAMErrorDescription" value=""/>
+          <Property name="ERPItemNo" value=""/>
+          <Property name="ModelElementType" value="meIndicationRegular"/>
+          <Property name="ValidationResult" value="vrPassed"/>
+          <Property name="IgnoredMaterialRestrictions" value=""/>
+        </Object>
+        <Object type="TDM_Item_ModelElement">
+          <Property name="ModelElementID" value="ME159EBC96ECF24D9794A6938C31B8D7FD"/>
+          <Property name="ModelJobID" value="MJ95C640D2CA7C4CBE8B2D32764E5E47A7"/>
+          <Property name="MaterialID" value="Configuration_01_ModelMaterial"/>
+          <Property name="ColorID" value="_NULL_"/>
+          <Property name="ProcessStatusID" value="psModelled"/>
+          <Property name="AltProcessStatusID" value="psModelled"/>
+          <Property name="ProcessLockID" value="plReady"/>
+          <Property name="ManufacturingProcessID" value="Configuration_11_ManufProcess2"/>
+          <Property name="ManufacturerID" value="734116223"/>
+          <Property name="ModelHeight" value="14.5907955"/>
+          <Property name="ModelVolume" value="231.916367"/>
+          <Property name="ModelBoundingBoxMin" value=" 3.25332784652710E+0000; -4.18743705749512E+0000; -1.37973356246948E+0001;"/>
+          <Property name="ModelBoundingBoxMax" value=" 9.68450641632080E+0000;  2.69367647171021E+0000;  8.11069965362549E-0001;"/>
+          <Property name="ModelTransformation" value=""/>
+          <Property name="ModelFilename" value="CAD\Tooth_{20_38903-SANDO-A1.5}.dcm"/>
+          <Property name="Location1" value=""/>
+          <Property name="Location2" value=""/>
+          <Property name="Location3" value=""/>
+          <Property name="Location4" value=""/>
+          <Property name="VirtualItem" value="False"/>
+          <Property name="ModelComment" value=""/>
+          <Property name="CreateDate" value="1741358718"/>
+          <Property name="DeliveryDate" value="1741305600"/>
+          <Property name="ShippingDate" value="1741305600"/>
+          <Property name="ReceiveDate" value="1741305600"/>
+          <Property name="ModelActive" value="True"/>
+          <Property name="WasSent" value="False"/>
+          <Property name="Items" value="Die 20"/>
+          <Property name="ManufName" value="999273927"/>
+          <Property name="CacheMaterialName" value="Model Material (Configuration_01)"/>
+          <Property name="CacheColor" value=""/>
+          <Property name="CAMBlankID" value=""/>
+          <Property name="CAMBlankBatchID" value=""/>
+          <Property name="CAMJobID" value=""/>
+          <Property name="CAMJobName" value=""/>
+          <Property name="CAMErrorDescription" value=""/>
+          <Property name="ERPItemNo" value=""/>
+          <Property name="ModelElementType" value="meDigitalModelDie"/>
+          <Property name="ValidationResult" value="vrUndefined"/>
+          <Property name="IgnoredMaterialRestrictions" value=""/>
+        </Object>
+        <Object type="TDM_Item_ModelElement">
+          <Property name="ModelElementID" value="ME3DAFC6D2F4F34B7C96BAA559A2664AFD"/>
+          <Property name="ModelJobID" value="MJ95C640D2CA7C4CBE8B2D32764E5E47A7"/>
+          <Property name="MaterialID" value="Configuration_01_ModelMaterial"/>
+          <Property name="ColorID" value="_NULL_"/>
+          <Property name="ProcessStatusID" value="psModelled"/>
+          <Property name="AltProcessStatusID" value="psModelled"/>
+          <Property name="ProcessLockID" value="plReady"/>
+          <Property name="ManufacturingProcessID" value="Configuration_11_ManufProcess2"/>
+          <Property name="ManufacturerID" value="734116223"/>
+          <Property name="ModelHeight" value="16.4534"/>
+          <Property name="ModelVolume" value="2921.00854"/>
+          <Property name="ModelBoundingBoxMin" value="-5.83893156051636E+0000; -1.11909542083740E+0001;  1.10349461436272E-0001;"/>
+          <Property name="ModelBoundingBoxMax" value=" 1.73548984527588E+0001;  1.72999858856201E+0001;  1.66305770874023E+0001;"/>
+          <Property name="ModelTransformation" value=""/>
+          <Property name="ModelFilename" value="CAD\Unsectioned_UpperJaw.dcm"/>
+          <Property name="Location1" value=""/>
+          <Property name="Location2" value=""/>
+          <Property name="Location3" value=""/>
+          <Property name="Location4" value=""/>
+          <Property name="VirtualItem" value="False"/>
+          <Property name="ModelComment" value=""/>
+          <Property name="CreateDate" value="1741358718"/>
+          <Property name="DeliveryDate" value="1741305600"/>
+          <Property name="ShippingDate" value="1741305600"/>
+          <Property name="ReceiveDate" value="1741305600"/>
+          <Property name="ModelActive" value="True"/>
+          <Property name="WasSent" value="False"/>
+          <Property name="Items" value="Antagonist model"/>
+          <Property name="ManufName" value="999273927"/>
+          <Property name="CacheMaterialName" value="Model Material (Configuration_01)"/>
+          <Property name="CacheColor" value=""/>
+          <Property name="CAMBlankID" value=""/>
+          <Property name="CAMBlankBatchID" value=""/>
+          <Property name="CAMJobID" value=""/>
+          <Property name="CAMJobName" value=""/>
+          <Property name="CAMErrorDescription" value=""/>
+          <Property name="ERPItemNo" value=""/>
+          <Property name="ModelElementType" value="meDigitalModelAntagonist"/>
+          <Property name="ValidationResult" value="vrUndefined"/>
+          <Property name="IgnoredMaterialRestrictions" value=""/>
+        </Object>
+        <Object type="TDM_Item_ModelElement">
+          <Property name="ModelElementID" value="ME4A7EDBC92FAA4AF6BD09D4CAB664E236"/>
+          <Property name="ModelJobID" value="MJ95C640D2CA7C4CBE8B2D32764E5E47A7"/>
+          <Property name="MaterialID" value="Configuration_01_ModelMaterial"/>
+          <Property name="ColorID" value="_NULL_"/>
+          <Property name="ProcessStatusID" value="psModelled"/>
+          <Property name="AltProcessStatusID" value="psModelled"/>
+          <Property name="ProcessLockID" value="plReady"/>
+          <Property name="ManufacturingProcessID" value="Configuration_11_ManufProcess2"/>
+          <Property name="ManufacturerID" value="734116223"/>
+          <Property name="ModelHeight" value="19.8308086"/>
+          <Property name="ModelVolume" value="2719.44141"/>
+          <Property name="ModelBoundingBoxMin" value="-3.12522101402283E+0000; -1.13950510025024E+0001; -1.58617162704468E+0001;"/>
+          <Property name="ModelBoundingBoxMax" value=" 1.62490653991699E+0001;  1.41080169677734E+0001;  4.01465082168579E+0000;"/>
+          <Property name="ModelTransformation" value=""/>
+          <Property name="ModelFilename" value="CAD\Unsectioned_LowerJaw.dcm"/>
+          <Property name="Location1" value=""/>
+          <Property name="Location2" value=""/>
+          <Property name="Location3" value=""/>
+          <Property name="Location4" value=""/>
+          <Property name="VirtualItem" value="False"/>
+          <Property name="ModelComment" value=""/>
+          <Property name="CreateDate" value="1741358718"/>
+          <Property name="DeliveryDate" value="1741305600"/>
+          <Property name="ShippingDate" value="1741305600"/>
+          <Property name="ReceiveDate" value="1741305600"/>
+          <Property name="ModelActive" value="True"/>
+          <Property name="WasSent" value="False"/>
+          <Property name="Items" value="Unsectioned model"/>
+          <Property name="ManufName" value="999273927"/>
+          <Property name="CacheMaterialName" value="Model Material (Configuration_01)"/>
+          <Property name="CacheColor" value=""/>
+          <Property name="CAMBlankID" value=""/>
+          <Property name="CAMBlankBatchID" value=""/>
+          <Property name="CAMJobID" value=""/>
+          <Property name="CAMJobName" value=""/>
+          <Property name="CAMErrorDescription" value=""/>
+          <Property name="ERPItemNo" value=""/>
+          <Property name="ModelElementType" value="meDigitalModelPrepUnsectioned"/>
+          <Property name="ValidationResult" value="vrUndefined"/>
+          <Property name="IgnoredMaterialRestrictions" value=""/>
+        </Object>
+      </List>
+    </Object>
+    <Object name="ToothElementList" type="TDM_List_ToothElement">
+      <List name="Items">
+        <Object type="TDM_Item_ToothElement">
+          <Property name="ToothElementID" value="TE8974AED555374FFC8BA07603342406BD"/>
+          <Property name="ModelElementID" value="MED7489633E971460EA497D28C21DE2C5D"/>
+          <Property name="toothElementTypeID" value="77997_LAVA ULTIMATE Cr"/>
+          <Property name="ToothNumber" value="20"/>
+          <Property name="AbutmentKitID" value=""/>
+          <Property name="Anatomical" value="False"/>
+          <Property name="PostAndCore" value="False"/>
+          <Property name="CacheToothTypeClass" value="teCrown"/>
+        </Object>
+      </List>
+    </Object>
+    <Object name="LinkList" type="TDM_List_Link">
+      <List name="Items"/>
+    </Object>
+    <Object name="LinkToothElementList" type="TDM_List_LinkToothElement">
+      <List name="Items"/>
+    </Object>
+    <Object name="SplitBridgeLinkList" type="TDM_List_SplitBridgeLink">
+      <List name="Items"/>
+    </Object>
+    <Object name="CountryList" type="TDM_List_Country">
+      <List name="Items"/>
+    </Object>
+    <Object name="MaterialList" type="TDM_List_Material">
+      <List name="Items"/>
+    </Object>
+    <Object name="SiteList" type="TDM_List_Site">
+      <List name="Items"/>
+    </Object>
+    <Object name="SitePreferencesList" type="TDM_List_SitePreferences">
+      <List name="Items"/>
+    </Object>
+    <Object name="ManufacturingProcessList" type="TDM_List_ManufacturingProcess">
+      <List name="Items"/>
+    </Object>
+    <Object name="Manufacturer_ManProcessList" type="TDM_List_Manufacturer_ManProcess">
+      <List name="Items"/>
+    </Object>
+    <Object name="Material_ManProcessList" type="TDM_List_Material_ManProcess">
+      <List name="Items"/>
+    </Object>
+    <Object name="ToothElementTypeList" type="TDM_List_ToothElementType">
+      <List name="Items"/>
+    </Object>
+    <Object name="LinkTypeList" type="TDM_List_LinkType">
+      <List name="Items"/>
+    </Object>
+    <Object name="OptionalComponentList" type="TDM_List_OptionalComponent">
+      <List name="Items"/>
+    </Object>
+    <Object name="ValidationList" type="TDM_List_Validation">
+      <List name="Items"/>
+    </Object>
+    <Object name="CementSpaceList" type="TDM_List_CementSpace">
+      <List name="Items"/>
+    </Object>
+    <Object name="OverlayList" type="TDM_List_Overlay">
+      <List name="Items"/>
+    </Object>
+    <Object name="CopingOverlayList" type="TDM_List_CopingOverlay">
+      <List name="Items"/>
+    </Object>
+    <Object name="CrownOverlayList" type="TDM_List_CrownOverlay">
+      <List name="Items"/>
+    </Object>
+    <Object name="InlayOverlayList" type="TDM_List_InlayOverlay">
+      <List name="Items"/>
+    </Object>
+    <Object name="TabletopOverlayList" type="TDM_List_TabletopOverlay">
+      <List name="Items"/>
+    </Object>
+    <Object name="TelescopeOverlayList" type="TDM_List_TelescopeOverlay">
+      <List name="Items"/>
+    </Object>
+    <Object name="WaxupOverlayList" type="TDM_List_WaxupOverlay">
+      <List name="Items"/>
+    </Object>
+    <Object name="ScanList" type="TDM_List_Scan">
+      <List name="Items">
+        <Object type="TDM_Item_Scan">
+          <Property name="ScanID" value="SCC4B05F8994B48EFA40197995973A9CB"/>
+          <Property name="ScanType" value="stAntagonistIntraOral"/>
+          <Property name="ModelJobID" value="MJ0794F0FA7A19436DB8053F425FDFBB07"/>
+          <Property name="ModelElementID" value="_NULL_"/>
+          <Property name="ToothElementID" value="_NULL_"/>
+          <Property name="ScanDate" value="0"/>
+          <Property name="ScanName" value=""/>
+          <Property name="FileName" value=""/>
+        </Object>
+        <Object type="TDM_Item_Scan">
+          <Property name="ScanID" value="SF0497E1FB03749C382CDF361C98AFF62"/>
+          <Property name="ScanType" value="stPreparationIntraOral"/>
+          <Property name="ModelJobID" value="MJ0794F0FA7A19436DB8053F425FDFBB07"/>
+          <Property name="ModelElementID" value="_NULL_"/>
+          <Property name="ToothElementID" value="_NULL_"/>
+          <Property name="ScanDate" value="0"/>
+          <Property name="ScanName" value=""/>
+          <Property name="FileName" value=""/>
+        </Object>
+      </List>
+    </Object>
+    <Object name="PathList" type="TDM_List_Path">
+      <List name="Items"/>
+    </Object>
+    <Object name="InboxDataList" type="TDM_List_InboxData">
+      <List name="Items"/>
+    </Object>
+    <Object name="TrackAndTraceList" type="TDM_List_TrackAndTrace">
+      <List name="Items"/>
+    </Object>
+    <Object name="CustomDataList" type="TDM_List_CustomData">
+      <List name="Items">
+        <Object type="TDM_Item_CustomData">
+          <Property name="CustomDataID" value="CD7C0E9A582684422FB42EA374064A7165"/>
+          <Property name="OrderID" value="38903-SANDO-A1.5"/>
+          <Property name="FieldID" value="{5D6159A4-7990-4967-86C1-53A2C694264D}"/>
+          <Property name="FieldCaption" value=""/>
+          <Property name="Value" value="2.23.1.1"/>
+          <Property name="Kind" value="cdkInternal"/>
+        </Object>
+        <Object type="TDM_Item_CustomData">
+          <Property name="CustomDataID" value="CDA01D7ABE8FAF4984A6BB695A3307576C"/>
+          <Property name="OrderID" value="38903-SANDO-A1.5"/>
+          <Property name="FieldID" value="{6737EB02-2414-4561-AD0D-FF36A62930B9}"/>
+          <Property name="FieldCaption" value=""/>
+          <Property name="Value" value="fe9afbb9-afda-4b34-8505-ae1b6a7b17f3"/>
+          <Property name="Kind" value="cdkPublic"/>
+        </Object>
+      </List>
+    </Object>
+    <Object name="OrderExchangeElementList" type="TDM_List_OrderExchangeElement">
+      <List name="Items">
+        <Object type="TDM_Item_OrderExchangeElement">
+          <Property name="OrderExchangeElementID" value="OEEEC53B2A8672D4EE3A426A3088DF91D44"/>
+          <Property name="OrderExchangeElementExtID" value="1CCE7F74-B43D-4A75-81F4-582FEA562CF7"/>
+          <Property name="OrderID" value="38903-SANDO-A1.5"/>
+          <Property name="Text" value="Auto created screenshots"/>
+          <Property name="Author" value="B1B1E0A9-1A72-423D-8560-4CE0C673A4B0"/>
+          <Property name="CreateTimeStamp" value="1741419519"/>
+          <Property name="SyncTimeStamp" value="0"/>
+          <Property name="ApproveTimeStamp" value="0"/>
+          <Property name="ApprovedBy" value=""/>
+          <Property name="Kind" value="ekAttachmentOut"/>
+          <Property name="Importance" value="eiLow"/>
+          <Property name="ConnectionType" value="0"/>
+        </Object>
+      </List>
+    </Object>
+    <Object name="OrderExchangeAttachmentList" type="TDM_List_OrderExchangeAttachment">
+      <List name="Items">
+        <Object type="TDM_Item_OrderExchangeAttachment">
+          <Property name="OrderExchangeAttachmentID" value="OEA06D4A3D439484F4D8067439363E8346C"/>
+          <Property name="OrderExchangeAttachmentExtID" value="52995488-553E-47A9-B858-D628CBC6CD41"/>
+          <Property name="OrderExchangeElementID" value="OEEEC53B2A8672D4EE3A426A3088DF91D44"/>
+          <Property name="Name" value="Left.jpg"/>
+          <Property name="Path" value="3SCom\Screenshots\Left.jpg"/>
+          <Property name="AttachmentType" value="Image"/>
+        </Object>
+        <Object type="TDM_Item_OrderExchangeAttachment">
+          <Property name="OrderExchangeAttachmentID" value="OEA1513CB9B558041479896B4AE38340854"/>
+          <Property name="OrderExchangeAttachmentExtID" value="9A8B2899-5F5D-4E64-88D1-CBE04364AF2C"/>
+          <Property name="OrderExchangeElementID" value="OEEEC53B2A8672D4EE3A426A3088DF91D44"/>
+          <Property name="Name" value="Right.jpg"/>
+          <Property name="Path" value="3SCom\Screenshots\Right.jpg"/>
+          <Property name="AttachmentType" value="Image"/>
+        </Object>
+        <Object type="TDM_Item_OrderExchangeAttachment">
+          <Property name="OrderExchangeAttachmentID" value="OEA8DB0DD2CCAF147FCA79BF91E6F4122A0"/>
+          <Property name="OrderExchangeAttachmentExtID" value="260DB95F-8C59-46FD-A247-CC03867A9988"/>
+          <Property name="OrderExchangeElementID" value="OEEEC53B2A8672D4EE3A426A3088DF91D44"/>
+          <Property name="Name" value="Back.jpg"/>
+          <Property name="Path" value="3SCom\Screenshots\Back.jpg"/>
+          <Property name="AttachmentType" value="Image"/>
+        </Object>
+        <Object type="TDM_Item_OrderExchangeAttachment">
+          <Property name="OrderExchangeAttachmentID" value="OEA929CB784B6E14B20B598190B79B04080"/>
+          <Property name="OrderExchangeAttachmentExtID" value="1D7188BF-4C4D-4AA7-BE93-E552D8C8AEDA"/>
+          <Property name="OrderExchangeElementID" value="OEEEC53B2A8672D4EE3A426A3088DF91D44"/>
+          <Property name="Name" value="Bottom.jpg"/>
+          <Property name="Path" value="3SCom\Screenshots\Bottom.jpg"/>
+          <Property name="AttachmentType" value="Image"/>
+        </Object>
+        <Object type="TDM_Item_OrderExchangeAttachment">
+          <Property name="OrderExchangeAttachmentID" value="OEAB320076950404D939EA22FF4C947C6CC"/>
+          <Property name="OrderExchangeAttachmentExtID" value="C9334380-872D-4AAA-902E-6E9DD86AABE2"/>
+          <Property name="OrderExchangeElementID" value="OEEEC53B2A8672D4EE3A426A3088DF91D44"/>
+          <Property name="Name" value="Top.jpg"/>
+          <Property name="Path" value="3SCom\Screenshots\Top.jpg"/>
+          <Property name="AttachmentType" value="Image"/>
+        </Object>
+        <Object type="TDM_Item_OrderExchangeAttachment">
+          <Property name="OrderExchangeAttachmentID" value="OEAB85E0A7913CF41EAB144878AC1C54F6A"/>
+          <Property name="OrderExchangeAttachmentExtID" value="5BC44E83-AFC6-49D6-A799-F3513B89EFD9"/>
+          <Property name="OrderExchangeElementID" value="OEEEC53B2A8672D4EE3A426A3088DF91D44"/>
+          <Property name="Name" value="Front.jpg"/>
+          <Property name="Path" value="3SCom\Screenshots\Front.jpg"/>
+          <Property name="AttachmentType" value="Image"/>
+        </Object>
+      </List>
+    </Object>
+    <Object name="DigitalModelElementInfoList" type="TDM_List_DigitalModelElementInfo">
+      <List name="Items">
+        <Object type="TDM_Item_DigitalModelElementInfo">
+          <Property name="DigitalModelElementInfoID" value="DMB7416B852B62493391FC83AB2370BF17"/>
+          <Property name="ModelElementID" value="ME159EBC96ECF24D9794A6938C31B8D7FD"/>
+          <Property name="ToothNumber" value="20"/>
+        </Object>
+        <Object type="TDM_Item_DigitalModelElementInfo">
+          <Property name="DigitalModelElementInfoID" value="DM372F9F651CA24B559729D67953C13E56"/>
+          <Property name="ModelElementID" value="ME3DAFC6D2F4F34B7C96BAA559A2664AFD"/>
+          <Property name="ToothNumber" value="17"/>
+        </Object>
+        <Object type="TDM_Item_DigitalModelElementInfo">
+          <Property name="DigitalModelElementInfoID" value="DMEC70A7852E714F55B7ECC4BB1101F3D6"/>
+          <Property name="ModelElementID" value="ME4A7EDBC92FAA4AF6BD09D4CAB664E236"/>
+          <Property name="ToothNumber" value="17"/>
+        </Object>
+      </List>
+    </Object>
+    <Object name="MarginLineList" type="TDM_List_MarginLine">
+      <List name="Items"/>
+    </Object>
+    <Object name="OperatorList" type="TDM_List_Operator">
+      <List name="Items"/>
+    </Object>
+    <Object name="ColorList" type="TDM_List_Color">
+      <List name="Items"/>
+    </Object>
+    <Object name="ColorGroupList" type="TDM_List_ColorGroup">
+      <List name="Items"/>
+    </Object>
+    <Object name="ColorGroupLinkList" type="TDM_List_ColorGroup_Link">
+      <List name="Items"/>
+    </Object>
+    <Object name="SmileLibraryList" type="TDM_List_SmileLibrary">
+      <List name="Items"/>
+    </Object>
+    <Object name="SmileLibraryGroupList" type="TDM_List_SmileLibraryGroup">
+      <List name="Items"/>
+    </Object>
+    <Object name="SmileLibraryGroupLinkList" type="TDM_List_SmileLibraryGroup_Link">
+      <List name="Items"/>
+    </Object>
+    <Object name="SmileLibraryProviderList" type="TDM_List_SmileLibraryProvider">
+      <List name="Items"/>
+    </Object>
+    <Object name="SmileLibraryProviderLinkList" type="TDM_List_SmileLibraryProvider_Link">
+      <List name="Items"/>
+    </Object>
+    <Object name="FDSmileLibraryLinkList" type="TDM_List_FDSmileLibrary_Link">
+      <List name="Items"/>
+    </Object>
+    <Object name="AttachmentList" type="TDM_List_Attachment">
+      <List name="Items"/>
+    </Object>
+    <Object name="AttachmentGroupList" type="TDM_List_AttachmentGroup">
+      <List name="Items"/>
+    </Object>
+    <Object name="Attachment_AttachmentGroupList" type="TDM_List_Attachment_AttachmentGroup">
+      <List name="Items"/>
+    </Object>
+    <Object name="Attachment_MaterialList" type="TDM_List_Attachment_Material">
+      <List name="Items"/>
+    </Object>
+    <Object name="ManufacturingBlankList" type="TDM_List_ManufacturingBlank">
+      <List name="Items"/>
+    </Object>
+    <Object name="ManufacturingBlank_Material_LinkList" type="TDM_List_ManufacturingBlank_Material_Link">
+      <List name="Items"/>
+    </Object>
+    <Object name="PressMultiSprueList" type="TDM_List_PressMultiSprue">
+      <List name="Items"/>
+    </Object>
+    <Object name="PressMultiSprue_Material_LinkList" type="TDM_List_PressMultiSprue_Material_Link">
+      <List name="Items"/>
+    </Object>
+    <Object name="PnCSystemList" type="TDM_List_PnCSystem">
+      <List name="Items"/>
+    </Object>
+    <Object name="PnCTypeList" type="TDM_List_PnCType">
+      <List name="Items"/>
+    </Object>
+    <Object name="BarGroupList" type="TDM_List_BarGroup">
+      <List name="Items"/>
+    </Object>
+    <Object name="Bar_BarGroupList" type="TDM_List_Bar_BarGroup">
+      <List name="Items"/>
+    </Object>
+    <Object name="Order2DImageOverlayList" type="TDM_List_Order2DImageOverlay">
+      <List name="Items"/>
+    </Object>
+    <Object name="Material2DImageOverlayList" type="TDM_List_Material2DImageOverlay">
+      <List name="Items"/>
+    </Object>
+    <Object name="JobTypeERPInformationList" type="TDM_List_JobTypeERPInformation">
+      <List name="Items"/>
+    </Object>
+    <Object name="ExternalApplicationList" type="TDM_List_ExternalApplication">
+      <List name="Items"/>
+    </Object>
+    <Object name="MillingMachineList" type="TDM_List_MillingMachine">
+      <List name="Items"/>
+    </Object>
+    <Object name="ImplantSystemList" type="TDM_List_ImplantSystem">
+      <List name="Items"/>
+    </Object>
+    <Object name="ImplantSystemPartList" type="TDM_List_ImplantSystemPart">
+      <List name="Items"/>
+    </Object>
+    <Object name="AbutmentKitList" type="TDM_List_AbutmentKit">
+      <List name="Items"/>
+    </Object>
+    <Object name="ImplantSystemGroupList" type="TDM_List_ImplantSystemGroup">
+      <List name="Items"/>
+    </Object>
+    <Object name="ImplantSystem_ImplantSystemGroupList" type="TDM_List_ImplantSystem_ImplantSystemGroup">
+      <List name="Items"/>
+    </Object>
+    <Object name="AbutmentKitMaterialRelationList" type="TDM_List_AbutmentKitMaterialRelation">
+      <List name="Items"/>
+    </Object>
+    <Object name="AbutmentKitImplantPartExtraRelationList" type="TDM_List_AbutmentKitImplantPartExtraRelation">
+      <List name="Items"/>
+    </Object>
+    <Object name="IPGSSurgicalTrayList" type="TDM_List_IPGS_SurgicalTray">
+      <List name="Items"/>
+    </Object>
+    <Object name="IPGSSleeveList" type="TDM_List_IPGS_Sleeve">
+      <List name="Items"/>
+    </Object>
+    <Object name="IPGSSleeveGroupOffsetList" type="TDM_List_IPGS_SleeveGroupOffset">
+      <List name="Items"/>
+    </Object>
+    <Object name="IPGSGroupOffsetList" type="TDM_List_IPGS_GroupOffset">
+      <List name="Items"/>
+    </Object>
+    <Object name="IPGSImplantTraySleeveList" type="TDM_List_IPGS_ImplantTraySleeve">
+      <List name="Items"/>
+    </Object>
+    <Object name="DentureWaxTemplateList" type="TDM_List_DentureWaxTemplate">
+      <List name="Items"/>
+    </Object>
+    <Object name="RPDConnectorList" type="TDM_List_RPDConnector">
+      <List name="Items"/>
+    </Object>
+    <Object name="WaxProfileStripList" type="TDM_List_WaxProfileStrip">
+      <List name="Items"/>
+    </Object>
+    <Object name="RetentionsList" type="TDM_List_Retentions">
+      <List name="Items"/>
+    </Object>
+    <Object name="StippledWaxList" type="TDM_List_StippledWax">
+      <List name="Items"/>
+    </Object>
+    <Object name="ModelManufacturingList" type="TDM_List_ModelManufacturing">
+      <List name="Items"/>
+    </Object>
+    <Object name="ArticulatorInterfaceList" type="TDM_List_ArticulatorInterface">
+      <List name="Items"/>
+    </Object>
+    <Object name="ArticulatorAdapterModelsList" type="TDM_List_ArticulatorAdapterModels">
+      <List name="Items"/>
+    </Object>
+    <Object name="ArticulatorList" type="TDM_List_Articulator">
+      <List name="Items"/>
+    </Object>
+    <Object name="ArticulatorToolList" type="TDM_List_Articulator_Tool">
+      <List name="Items"/>
+    </Object>
+    <Object name="ModelBaseList" type="TDM_List_ModelBase">
+      <List name="Items"/>
+    </Object>
+    <Object name="CommunicateOrderList" type="TDM_List_CommunicateOrder">
+      <List name="Items"/>
+    </Object>
+    <Property name="ImportForceOverwrite" value="false"/>
+    <Property name="ImportForceClean" value="false"/>
+    <Property name="EmptyRecycleBin" value="false"/>
+  </Object>
+</DentalContainer>
