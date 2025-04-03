@@ -68,11 +68,17 @@ include 'header.php';
             ?>
               <tr>
                 <td>
-
+                  <?php
+                  if (strpos($row['fname'], "#") > 0) {
+                    $filename = urlencode($row['fname']);
+                  } else {
+                    $filename = $row['fname'];
+                  }
+                  ?>
                   <input type="checkbox" name="caseid" class="caseid" id="caseid<?php echo $i ?>" value="<?php echo $i ?>">
                   <a href="order_detail.php?orderid=<?php echo $row['orderid'] ?>"><?php echo $row['orderid'] ?></a>
 
-                  <input type="hidden" id="initial<?php echo $i ?>" value="../api/files/<?php echo $row['user_id'] . '_' . $row['orderid'] . '/' . urlencode($row['filename']) ?>">
+                  <input type="hidden" id="initial<?php echo $i ?>" value="../api/files/<?php echo $row['user_id'] . '_' . $row['orderid'] . '/' . $filename; ?>">
 
 
 
@@ -84,8 +90,13 @@ include 'header.php';
                   $res2 = mysqli_query($bd, $sql2);
                   $row2 = mysqli_fetch_array($res2);
 
+                  if (strpos($row2['finished_file'], "#") > 0) {
+                    $finishfilename = urlencode($row2['finished_file']);
+                  } else {
+                    $finishfilename = $row2['finished_file'];
+                  }
                   ?>
-                  <input type="hidden" id="finished_file<?php echo $i ?>" value="../api/finished_files/<?php echo urlencode($row2['finished_file']) ?>">
+                  <input type="hidden" id="finished_file<?php echo $i ?>" value="../api/finished_files/<?php echo $finishfilename; ?>">
                   <?php
                   $orderid = $row['orderid'];
                   $sql23 = "SELECT * FROM orders_stl_files where orderid='$orderid'";
@@ -94,12 +105,16 @@ include 'header.php';
                   $f = 0;
                   $st = array();
                   while ($row23 = mysqli_fetch_assoc($res23)) {
-                    $st[$f] = $row23['filename'];
+                    if (strpos($row23['filename'], "#") > 0) {
+                      $st[$f] = urlencode($row23['filename']);
+                    } else {
+                      $st[$f] = $row23['filename'];
+                    }
                     $f++;
                   }
 
                   ?>
-                  <input type="hidden" size="5000" id="stl_file<?php echo $i ?>" value="../api/stl_files/<?php echo urlencode(implode("|", $st)); ?>">
+                  <input type="hidden" size="5000" id="stl_file<?php echo $i ?>" value="../api/stl_files/<?php echo \implode("|", $st); ?>">
 
                 </td>
                 <td><?php echo $row['fname'] ?></td>
@@ -124,11 +139,11 @@ include 'header.php';
                                               if ($row['status'] == 'QC Required') echo 'bg-primary';
                                               if ($row['status'] == 'Hold') echo 'bg-danger';
                                               if ($row['status'] == 'Redesign') echo 'bg-warning'; ?>" style="width:<?php if ($row['status'] == 'New') echo '100%';
-                                                                                                                                                                                                                                                                                                                                                                if ($row['status'] == 'Cancel') echo '40%';
-                                                                                                                                                                                                                                                                                                                                                                if ($row['status'] == 'Completed') echo '100%';
-                                                                                                                                                                                                                                                                                                                                                                if ($row['status'] == 'QC Required') echo '90%';
-                                                                                                                                                                                                                                                                                                                                                                if ($row['status'] == 'Hold') echo '50%';
-                                                                                                                                                                                                                                                                                                                                                                if ($row['status'] == 'Redesign') echo '100%'; ?>"> <?php echo $row['status'] ?> </div>
+                                                                                                                    if ($row['status'] == 'Cancel') echo '40%';
+                                                                                                                    if ($row['status'] == 'Completed') echo '100%';
+                                                                                                                    if ($row['status'] == 'QC Required') echo '90%';
+                                                                                                                    if ($row['status'] == 'Hold') echo '50%';
+                                                                                                                    if ($row['status'] == 'Redesign') echo '100%'; ?>"> <?php echo $row['status'] ?> </div>
                   </div>
                 </td>
                 <td><?php echo $row['unit'] ?></td>

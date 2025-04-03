@@ -213,17 +213,17 @@ $clientid = $_SESSION['user_id'];
                                                                             echo 'bg-danger';
                                                                         if ($row['status'] == 'Redesign')
                                                                             echo 'bg-warning'; ?>" style="width:<?php if ($row['status'] == 'New')
-                                                                                            echo '100%';
-                                                                                        if ($row['status'] == 'Cancel')
-                                                                                            echo '100%';
-                                                                                        if ($row['status'] == 'Completed')
-                                                                                            echo '100%';
-                                                                                        if ($row['status'] == 'QC Required')
-                                                                                            echo '90%';
-                                                                                        if ($row['status'] == 'Hold')
-                                                                                            echo '50%';
-                                                                                        if ($row['status'] == 'Redesign')
-                                                                                            echo '100%'; ?>">
+                                                                                                                    echo '100%';
+                                                                                                                if ($row['status'] == 'Cancel')
+                                                                                                                    echo '100%';
+                                                                                                                if ($row['status'] == 'Completed')
+                                                                                                                    echo '100%';
+                                                                                                                if ($row['status'] == 'QC Required')
+                                                                                                                    echo '90%';
+                                                                                                                if ($row['status'] == 'Hold')
+                                                                                                                    echo '50%';
+                                                                                                                if ($row['status'] == 'Redesign')
+                                                                                                                    echo '100%'; ?>">
                                                 <?php echo $row['status'] ?>
                                             </div>
                                         </div>
@@ -301,14 +301,14 @@ $clientid = $_SESSION['user_id'];
 
                     if (fileType === 'STL') {
                         var stlFileName = baseFileName + ".stl"; // Correct STL file name
-                        filePath = "api/stl_files/" + encodeURIComponent(stlFileName);
+                        let filePath = "api/stl_files/" + (stlFileName.includes("#") ? encodeURIComponent(stlFileName) : stlFileName);
 
                         urls.push(filePath);
                     }
 
                     if (fileType === 'Finished') {
                         var finishedFileName = baseFileName + ".zip"; // Correct ZIP file name
-                        filePath = "api/finished_files/" + encodeURIComponent(finishedFileName);
+                        let filePath = "api/finished_files/" + (finishedFileName.includes("#") ? encodeURIComponent(finishedFileName) : finishedFileName);
                         urls.push(filePath);
                     }
                 });
@@ -338,13 +338,11 @@ $clientid = $_SESSION['user_id'];
     });
 
     $(document).ready(function() {
-        // Select All Cases Checkbox Functionality
         $("#select_all").on("click", function() {
             var isChecked = $(this).prop("checked");
-            $(".caseid").prop("checked", isChecked); // Check or Uncheck all case checkboxes
+            $(".caseid").prop("checked", isChecked);
         });
 
-        // If any case checkbox is unchecked, uncheck "Select All"
         $(".caseid").on("click", function() {
             if (!$(this).prop("checked")) {
                 $("#select_all").prop("checked", false);

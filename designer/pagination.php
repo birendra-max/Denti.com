@@ -131,10 +131,18 @@ $status = base64_decode($_GET['type']);
                 <tr>
                   <td>
 
+                    <?php
+                    if (strpos($row['fname'], "#") > 0) {
+                      $filename = urlencode($row['fname']);
+                    } else {
+                      $filename = $row['fname'];
+                    }
+                    ?>
+
                     <input type="checkbox" name="caseid" class="caseid" id="caseid<?php echo $i ?>" value="<?php echo $i ?>">
                     <a href="order_detail.php?orderid=<?php echo $row['orderid'] ?>"><?php echo $row['orderid'] ?></a>
 
-                    <input type="hidden" id="initial<?php echo $i ?>" value="../api/files/<?php echo $row['user_id'] . '_' . $row['orderid'] . '/' .urlencode($row['filename']) ?>">
+                    <input type="hidden" id="initial<?php echo $i ?>" value="../api/files/<?php echo $row['user_id'] . '_' . $row['orderid'] . '/' . $filename; ?>">
 
 
 
@@ -146,8 +154,13 @@ $status = base64_decode($_GET['type']);
                     $res2 = mysqli_query($bd, $sql2);
                     $row2 = mysqli_fetch_array($res2);
 
+                    if (strpos($row2['finished_file'], "#") > 0) {
+                      $finishfilename = urlencode($row2['finished_file']);
+                    } else {
+                      $finishfilename = $row2['finished_file'];
+                    }
                     ?>
-                    <input type="hidden" id="finished_file<?php echo $i ?>" value="../api/finished_files/<?php echo urlencode($row2['finished_file']) ?>">
+                    <input type="hidden" id="finished_file<?php echo $i ?>" value="../api/finished_files/<?php echo $finishfilename; ?>">
                     <?php
                     $orderid = $row['orderid'];
                     $sql23 = "SELECT * FROM orders_stl_files where orderid='$orderid'";
@@ -156,12 +169,16 @@ $status = base64_decode($_GET['type']);
                     $f = 0;
                     $st = array();
                     while ($row23 = mysqli_fetch_assoc($res23)) {
-                      $st[$f] = $row23['filename'];
+                      if (strpos($row23['filename'], "#") > 0) {
+                        $st[$f] = urlencode($row23['filename']);
+                      } else {
+                        $st[$f] = $row23['filename'];
+                      }
                       $f++;
                     }
 
                     ?>
-                    <input type="hidden" size="5000" id="stl_file<?php echo $i ?>" value="../api/stl_files/<?php echo urlencode(implode("|", $st)); ?>">
+                    <input type="hidden" size="5000" id="stl_file<?php echo $i ?>" value="../api/stl_files/<?php echo implode("|", $st); ?>">
 
                   </td>
                   <td><?php echo $row['fname'] ?></td>

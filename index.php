@@ -90,7 +90,7 @@ $em = $_SESSION['user_id'];
               while ($row3 = mysqli_fetch_assoc($res3)) {
                 $stlFiles[] = $row3['filename'];
               }
-              ?>
+            ?>
               <tr>
                 <td>
                   <input type="checkbox" name="caseid" class="caseid" id="caseid<?php echo $i; ?>"
@@ -130,7 +130,7 @@ $em = $_SESSION['user_id'];
                   </button>
                 </td>
               </tr>
-              <?php
+            <?php
               $i++;
             }
             ?>
@@ -144,17 +144,16 @@ $em = $_SESSION['user_id'];
 
 
 <script>
-  $(document).ready(function () {
-    $('#download_button').on('click', function () {
+  $(document).ready(function() {
+    $('#download_button').on('click', function() {
       var urls = [];
       var selectedFileTypes = [];
 
       // Step 1: Check selected file types
-      $('.file-type-checkbox:checked').each(function () {
+      $('.file-type-checkbox:checked').each(function() {
         selectedFileTypes.push($(this).val());
       });
 
-      console.log("Selected file types:", selectedFileTypes);
 
       if (selectedFileTypes.length === 0) {
         alert("Please select a file type to download.");
@@ -162,38 +161,33 @@ $em = $_SESSION['user_id'];
       }
 
       // Step 2: Loop through each checked row and get the name column value
-      $('.caseid:checked').each(function () {
+      $('.caseid:checked').each(function() {
         var row = $(this).closest("tr");
         var rowId = $(this).val();
-        var orderId = row.find("td:first-child a").text().trim();
-        var nameColumnValue = row.find("td:nth-child(2)").text().trim(); // Extract original file name
-
-        console.log("Processing Order ID:", orderId);
-        console.log("Original File Name:", nameColumnValue);
+        var orderId = row.find("td:first-child span").text().trim();
+        var nameColumnValue = row.find("td:nth-child(2)").text().trim();
 
         // Step 3: Remove existing extension before adding new one
         var baseFileName = nameColumnValue.replace(/\.[^/.]+$/, ""); // Remove existing extension
 
-        selectedFileTypes.forEach(function (fileType) {
+        selectedFileTypes.forEach(function(fileType) {
           var filePath = "";
 
           if (fileType === 'STL') {
             var stlFileName = baseFileName + ".stl"; // Correct STL file name
-            filePath = "api/stl_files/" + stlFileName;
-            console.log("Adding STL File:", filePath);
+            let filePath = "api/stl_files/" + (stlFileName.includes("#") ? encodeURIComponent(stlFileName) : stlFileName);
+
             urls.push(filePath);
           }
 
           if (fileType === 'Finished') {
             var finishedFileName = baseFileName + ".zip"; // Correct ZIP file name
-            filePath = "api/finished_files/" + finishedFileName;
-            console.log("Adding Finished File:", filePath);
+            let filePath = "api/finished_files/" + (finishedFileName.includes("#") ? encodeURIComponent(finishedFileName) : finishedFileName);
             urls.push(filePath);
           }
         });
       });
 
-      console.log("Final Files to Download:", urls);
 
       if (urls.length === 0) {
         alert("No files selected for download.");
@@ -204,8 +198,8 @@ $em = $_SESSION['user_id'];
 
     // Function to trigger downloads
     function downloadFiles(urls) {
-      urls.forEach(function (url, index) {
-        setTimeout(function () {
+      urls.forEach(function(url, index) {
+        setTimeout(function() {
           var link = document.createElement('a');
           link.href = url;
           link.setAttribute('download', '');
@@ -217,15 +211,13 @@ $em = $_SESSION['user_id'];
     }
   });
 
-  $(document).ready(function () {
-    // Select All Cases Checkbox Functionality
-    $("#select_all").on("click", function () {
+  $(document).ready(function() {
+    $("#select_all").on("click", function() {
       var isChecked = $(this).prop("checked");
-      $(".caseid").prop("checked", isChecked); // Check or Uncheck all case checkboxes
+      $(".caseid").prop("checked", isChecked);
     });
 
-    // If any case checkbox is unchecked, uncheck "Select All"
-    $(".caseid").on("click", function () {
+    $(".caseid").on("click", function() {
       if (!$(this).prop("checked")) {
         $("#select_all").prop("checked", false);
       } else if ($(".caseid:checked").length === $(".caseid").length) {
