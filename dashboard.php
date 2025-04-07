@@ -213,17 +213,17 @@ $clientid = $_SESSION['user_id'];
                                                                             echo 'bg-danger';
                                                                         if ($row['status'] == 'Redesign')
                                                                             echo 'bg-warning'; ?>" style="width:<?php if ($row['status'] == 'New')
-                                                                                                                    echo '100%';
-                                                                                                                if ($row['status'] == 'Cancel')
-                                                                                                                    echo '100%';
-                                                                                                                if ($row['status'] == 'Completed')
-                                                                                                                    echo '100%';
-                                                                                                                if ($row['status'] == 'QC Required')
-                                                                                                                    echo '90%';
-                                                                                                                if ($row['status'] == 'Hold')
-                                                                                                                    echo '50%';
-                                                                                                                if ($row['status'] == 'Redesign')
-                                                                                                                    echo '100%'; ?>">
+                                                                                            echo '100%';
+                                                                                        if ($row['status'] == 'Cancel')
+                                                                                            echo '100%';
+                                                                                        if ($row['status'] == 'Completed')
+                                                                                            echo '100%';
+                                                                                        if ($row['status'] == 'QC Required')
+                                                                                            echo '90%';
+                                                                                        if ($row['status'] == 'Hold')
+                                                                                            echo '50%';
+                                                                                        if ($row['status'] == 'Redesign')
+                                                                                            echo '100%'; ?>">
                                                 <?php echo $row['status'] ?>
                                             </div>
                                         </div>
@@ -270,87 +270,105 @@ $clientid = $_SESSION['user_id'];
 
 
 <script>
-    $(document).ready(function() {
-        $('#download_button').on('click', function() {
-            var urls = [];
-            var selectedFileTypes = [];
+  $(document).ready(function() {
+    $('#download_button').on('click', function() {
+      var urls = [];
+      var selectedFileTypes = [];
 
-            // Step 1: Check selected file types
-            $('.file-type-checkbox:checked').each(function() {
-                selectedFileTypes.push($(this).val());
+      // Step 1: Check selected file types
+      $('.file-type-checkbox:checked').each(function() {
+        selectedFileTypes.push($(this).val());
+      });
+
+      if (selectedFileTypes.length === 0) {
+        alert("Please select a file type to download.");
+        return;
+      }
+
+      // Step 2: Prepare promises for async requests
+      var downloadPromises = [];
+
+      $('.caseid:checked').each(function() {
+        var row = $(this).closest("tr");
+        var rowId = $(this).val();
+        var orderId = row.find("td:first-child span").text().trim();
+        var nameColumnValue = row.find("td:nth-child(2)").text().trim();
+        var id = row.find("td:nth-child(1)").text().trim();
+
+        var baseFileName = nameColumnValue.replace(/\.[^/.]+$/, "");
+
+        selectedFileTypes.forEach(function(fileType) {
+          if (fileType === 'STL') {
+            var stlPromise = $.ajax({
+              url: 'getStl_f_name.php',
+              type: "POST",
+              data: {
+                orderid: orderId
+              }
+            }).then(function(resp) {
+              if (resp !== '') {
+                var filePath = "api/stl_files/" + resp;
+                urls.push(filePath);
+              } else {
+                alert('STL file not found for Order ID: ' + orderId);
+              }
+            }).catch(function(err) {
+              console.error('Error checking STL file:', err);
             });
 
+            downloadPromises.push(stlPromise);
+          }
 
-            if (selectedFileTypes.length === 0) {
-                alert("Please select a file type to download.");
-                return;
-            }
-
-            // Step 2: Loop through each checked row and get the name column value
-            $('.caseid:checked').each(function() {
-                var row = $(this).closest("tr");
-                var rowId = $(this).val();
-                var orderId = row.find("td:first-child span").text().trim();
-                var nameColumnValue = row.find("td:nth-child(2)").text().trim();
-
-                // Step 3: Remove existing extension before adding new one
-                var baseFileName = nameColumnValue.replace(/\.[^/.]+$/, ""); // Remove existing extension
-
-                selectedFileTypes.forEach(function(fileType) {
-                    var filePath = "";
-
-                    if (fileType === 'STL') {
-                        var stlFileName = baseFileName + ".stl"; // Correct STL file name
-                        let filePath = "api/stl_files/" + (stlFileName.includes("#") ? encodeURIComponent(stlFileName) : stlFileName);
-
-                        urls.push(filePath);
-                    }
-
-                    if (fileType === 'Finished') {
-                        var finishedFileName = baseFileName + ".zip"; // Correct ZIP file name
-                        let filePath = "api/finished_files/" + (finishedFileName.includes("#") ? encodeURIComponent(finishedFileName) : finishedFileName);
-                        urls.push(filePath);
-                    }
-                });
-            });
-
-
-            if (urls.length === 0) {
-                alert("No files selected for download.");
-            } else {
-                downloadFiles(urls);
-            }
+          if (fileType === 'Finished') {
+            var finishedFileName = baseFileName + ".zip";
+            var filePath = "api/finished_files/" + encodeURIComponent(finishedFileName);
+            urls.push(filePath);
+          }
         });
+      });
 
-        // Function to trigger downloads
-        function downloadFiles(urls) {
-            urls.forEach(function(url, index) {
-                setTimeout(function() {
-                    var link = document.createElement('a');
-                    link.href = url;
-                    link.setAttribute('download', '');
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                }, index * 1000);
-            });
+      // Step 3: Once all async STL lookups are done, start downloading
+      Promise.all(downloadPromises).then(function() {
+        if (urls.length === 0) {
+          alert("No files selected for download.");
+        } else {
+          downloadFiles(urls);
         }
+      });
     });
 
-    $(document).ready(function() {
-        $("#select_all").on("click", function() {
-            var isChecked = $(this).prop("checked");
-            $(".caseid").prop("checked", isChecked);
-        });
+    // Download helper
+    function downloadFiles(urls) {
+      urls.forEach(function(url, index) {
+        setTimeout(function() {
+          var link = document.createElement('a');
+          link.href = url;
+          link.setAttribute('download', '');
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }, index * 1000); // Spread downloads 1s apart
+      });
+    }
+  });
 
-        $(".caseid").on("click", function() {
-            if (!$(this).prop("checked")) {
-                $("#select_all").prop("checked", false);
-            } else if ($(".caseid:checked").length === $(".caseid").length) {
-                $("#select_all").prop("checked", true);
-            }
-        });
+
+  $(document).ready(function() {
+    // Select All Cases Checkbox Functionality
+    $("#select_all").on("click", function() {
+      var isChecked = $(this).prop("checked");
+      $(".caseid").prop("checked", isChecked); // Check or Uncheck all case checkboxes
     });
+
+    // If any case checkbox is unchecked, uncheck "Select All"
+    $(".caseid").on("click", function() {
+      if (!$(this).prop("checked")) {
+        $("#select_all").prop("checked", false);
+      } else if ($(".caseid:checked").length === $(".caseid").length) {
+        $("#select_all").prop("checked", true);
+      }
+    });
+  });
 </script>
 
 <?php include 'footer.php'; ?>

@@ -224,52 +224,64 @@ $clientid = $_SESSION['user_id'];
         selectedFileTypes.push($(this).val());
       });
 
-
       if (selectedFileTypes.length === 0) {
         alert("Please select a file type to download.");
         return;
       }
 
-      // Step 2: Loop through each checked row and get the name column value
+      // Step 2: Prepare promises for async requests
+      var downloadPromises = [];
+
       $('.caseid:checked').each(function() {
         var row = $(this).closest("tr");
         var rowId = $(this).val();
         var orderId = row.find("td:first-child span").text().trim();
         var nameColumnValue = row.find("td:nth-child(2)").text().trim();
+        var id = row.find("td:nth-child(1)").text().trim();
 
-        // Step 3: Remove existing extension before adding new one
-        var baseFileName = nameColumnValue.replace(/\.[^/.]+$/, ""); // Remove existing extension
+        var baseFileName = nameColumnValue.replace(/\.[^/.]+$/, "");
 
         selectedFileTypes.forEach(function(fileType) {
-          var filePath = "";
-
           if (fileType === 'STL') {
-            var stlFileName = baseFileName + ".stl"; // Correct STL file name
-            filePath = "api/stl_files/" + encodeURIComponent(stlFileName);
+            var stlPromise = $.ajax({
+              url: 'getStl_f_name.php',
+              type: "POST",
+              data: {
+                orderid: orderId
+              }
+            }).then(function(resp) {
+              if (resp !== '') {
+                var filePath = "api/stl_files/" + resp;
+                urls.push(filePath);
+              } else {
+                alert('STL file not found for Order ID: ' + orderId);
+              }
+            }).catch(function(err) {
+              console.error('Error checking STL file:', err);
+            });
 
-            console.log(filePath)
-
-            urls.push(filePath);
+            downloadPromises.push(stlPromise);
           }
 
           if (fileType === 'Finished') {
-            var finishedFileName = baseFileName + ".zip"; // Correct ZIP file name
-            filePath = "api/finished_files/" + encodeURIComponent(finishedFileName);
-            console.log(filePath)
+            var finishedFileName = baseFileName + ".zip";
+            var filePath = "api/finished_files/" + encodeURIComponent(finishedFileName);
             urls.push(filePath);
           }
         });
       });
 
-
-      if (urls.length === 0) {
-        alert("No files selected for download.");
-      } else {
-        downloadFiles(urls);
-      }
+      // Step 3: Once all async STL lookups are done, start downloading
+      Promise.all(downloadPromises).then(function() {
+        if (urls.length === 0) {
+          alert("No files selected for download.");
+        } else {
+          downloadFiles(urls);
+        }
+      });
     });
 
-    // Function to trigger downloads
+    // Download helper
     function downloadFiles(urls) {
       urls.forEach(function(url, index) {
         setTimeout(function() {
@@ -279,10 +291,11 @@ $clientid = $_SESSION['user_id'];
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
-        }, index * 1000);
+        }, index * 1000); // Spread downloads 1s apart
       });
     }
   });
+
 
   $(document).ready(function() {
     // Select All Cases Checkbox Functionality
@@ -301,7 +314,6 @@ $clientid = $_SESSION['user_id'];
     });
   });
 </script>
-
 
 <?php
 include 'footer.php';

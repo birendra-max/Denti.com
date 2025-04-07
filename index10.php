@@ -30,6 +30,57 @@ $clientid = $_SESSION['user_id'];
 
       <div class="card" style="padding: 1%;">
 
+        <div class="row">
+          <div class="col-2">
+            <div class="form-group">
+              <label>Download</label>
+              <div class="dropdown col-12">
+                <button class="btn btn-white border border-2 border-primary dropdown-toggle w-100 text-left"
+                  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  Select File Type
+                </button>
+                <div class="dropdown-menu col-11 shadow-lg" aria-labelledby="dropdownMenuButton">
+                  <label class="dropdown-item">
+                    <input type="checkbox" value="STL" class="cursor-pointer file-type-checkbox"
+                      style="margin-right: 5px; " />
+                    STL File
+                  </label>
+                  <label class="dropdown-item">
+                    <input type="checkbox" value="Finished" class="cursor-pointer file-type-checkbox"
+                      style="margin-right: 5px; " />
+                    Finished File
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-1">
+            <div class="form-group">
+              <label>Action</label><br>
+              <input type="button" name="download_button" id="download_button" value="Download Now"
+                class="btn btn-primary">
+            </div>
+          </div>
+
+          <div class="col-2" style="display:none;">
+            <div class="form-group">
+              <label>Status</label>
+              <select name="filestatus" id="filestatus" class="form-control">
+                <option value="Rush">Redesign and Rush</option>
+              </select>
+
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-group">
+              <label>Action</label><br>
+              <input type="button" name="redesign_button" id="redesign_button" onclick="openredesign()"
+                value="Send For Redesign" class="btn btn-primary">
+            </div>
+          </div>
+        </div>
+
         <div class="form-group">
           <input type="checkbox" name="select_all" id="select_all" onclick='selects()' value="all"> Select All Cases
         </div>
@@ -193,52 +244,64 @@ $clientid = $_SESSION['user_id'];
         selectedFileTypes.push($(this).val());
       });
 
-
       if (selectedFileTypes.length === 0) {
         alert("Please select a file type to download.");
         return;
       }
 
-      // Step 2: Loop through each checked row and get the name column value
+      // Step 2: Prepare promises for async requests
+      var downloadPromises = [];
+
       $('.caseid:checked').each(function() {
         var row = $(this).closest("tr");
         var rowId = $(this).val();
         var orderId = row.find("td:first-child span").text().trim();
         var nameColumnValue = row.find("td:nth-child(2)").text().trim();
+        var id = row.find("td:nth-child(1)").text().trim();
 
-        // Step 3: Remove existing extension before adding new one
-        var baseFileName = nameColumnValue.replace(/\.[^/.]+$/, ""); // Remove existing extension
+        var baseFileName = nameColumnValue.replace(/\.[^/.]+$/, "");
 
         selectedFileTypes.forEach(function(fileType) {
-          var filePath = "";
-
           if (fileType === 'STL') {
-            var stlFileName = baseFileName + ".stl"; // Correct STL file name
-            filePath = "api/stl_files/" + encodeURIComponent(stlFileName);
+            var stlPromise = $.ajax({
+              url: 'getStl_f_name.php',
+              type: "POST",
+              data: {
+                orderid: orderId
+              }
+            }).then(function(resp) {
+              if (resp !== '') {
+                var filePath = "api/stl_files/" + resp;
+                urls.push(filePath);
+              } else {
+                alert('STL file not found for Order ID: ' + orderId);
+              }
+            }).catch(function(err) {
+              console.error('Error checking STL file:', err);
+            });
 
-            console.log(filePath)
-
-            urls.push(filePath);
+            downloadPromises.push(stlPromise);
           }
 
           if (fileType === 'Finished') {
-            var finishedFileName = baseFileName + ".zip"; // Correct ZIP file name
-            filePath = "api/finished_files/" + encodeURIComponent(finishedFileName);
-            console.log(filePath)
+            var finishedFileName = baseFileName + ".zip";
+            var filePath = "api/finished_files/" + encodeURIComponent(finishedFileName);
             urls.push(filePath);
           }
         });
       });
 
-
-      if (urls.length === 0) {
-        alert("No files selected for download.");
-      } else {
-        downloadFiles(urls);
-      }
+      // Step 3: Once all async STL lookups are done, start downloading
+      Promise.all(downloadPromises).then(function() {
+        if (urls.length === 0) {
+          alert("No files selected for download.");
+        } else {
+          downloadFiles(urls);
+        }
+      });
     });
 
-    // Function to trigger downloads
+    // Download helper
     function downloadFiles(urls) {
       urls.forEach(function(url, index) {
         setTimeout(function() {
@@ -248,10 +311,11 @@ $clientid = $_SESSION['user_id'];
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
-        }, index * 1000);
+        }, index * 1000); // Spread downloads 1s apart
       });
     }
   });
+
 
   $(document).ready(function() {
     // Select All Cases Checkbox Functionality
