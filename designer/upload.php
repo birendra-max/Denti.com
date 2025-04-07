@@ -40,7 +40,7 @@ if (isset($_FILES['file']['name'])) {
 
 
       //$fname=substr($fname, 0,strrpos($fname,'_'));
-      $rr = mysqli_query($bd, "SELECT orderid FROM orders WHERE filename like '$fname%'");
+      $rr = mysqli_query($bd, "SELECT orderid FROM orders WHERE fname like '$fname%'");
       $row = mysqli_fetch_assoc($rr);
       if (!empty($row['orderid'])) {
         $oid = $row['orderid'];
