@@ -4,7 +4,7 @@ $imageData = '';
 $flag = 0;
 // $_SESSION['userid']="1";
 // $_SESSION['labname']="papi lab";
-$em = $_SESSION['email'];
+$em = $_SESSION['user_id'];
 if (isset($_FILES['file']['name'])) {
   $flag = 0;
 
@@ -42,23 +42,24 @@ if (isset($_FILES['file']['name'])) {
       //$fname=substr($fname, 0,strrpos($fname,'_'));
       $rr = mysqli_query($bd, "SELECT orderid FROM orders WHERE fname like '$fname%'");
       $row = mysqli_fetch_assoc($rr);
+
       if (!empty($row['orderid'])) {
         $oid = $row['orderid'];
       } else {
 
         $fname = substr($fname, 0, strrpos($fname, '_'));
-        $rr = mysqli_query($bd, "SELECT orderid FROM orders WHERE filename like '$fname%'");
+        $rr = mysqli_query($bd, "SELECT orderid FROM orders WHERE fname like '$fname%'");
         $row = mysqli_fetch_assoc($rr);
         if (!empty($row['orderid'])) {
           $oid = $row['orderid'];
         } else {
           $fname = substr($fname, 0, strrpos($fname, '_', strrpos($fname, '_') - 1));
-          $rr = mysqli_query($bd, "SELECT orderid FROM orders WHERE filename like '$fname%'");
+          $rr = mysqli_query($bd, "SELECT orderid FROM orders WHERE fname like '$fname%'");
           $row = mysqli_fetch_assoc($rr);
           if (!empty($row['orderid'])) {
             $oid = $row['orderid'];
           } else {
-            $rr = mysqli_query($bd, "SELECT orderid FROM orders WHERE filename like '$fname2%'");
+            $rr = mysqli_query($bd, "SELECT orderid FROM orders WHERE fname like '$fname2%'");
             $row = mysqli_fetch_assoc($rr);
             $oid = $row['orderid'];
           }
@@ -105,7 +106,7 @@ if (isset($_FILES['file']['name'])) {
       if ($flag == 0) {
         $f_name = $_FILES["file"]["name"];
         $fname = basename($_FILES["file"]["name"]);
-        $rr = mysqli_query($bd, "SELECT orderid FROM orders WHERE filename like '$fname%'");
+        $rr = mysqli_query($bd, "SELECT orderid FROM orders WHERE fname like '$fname%'");
         $row = mysqli_fetch_assoc($rr);
         if (!empty($row['orderid'])) {
           if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file2)) {
