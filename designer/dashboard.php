@@ -11,9 +11,6 @@ function Total_row($bd, $status)
   return $row['cnt'];
 }
 
-
-
-
 ?>
 
 
@@ -283,6 +280,34 @@ function Total_row($bd, $status)
         </h3>
 
         <p style="color: #FFF;font-weight: bold;">Yesterday Cases</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-tasks"></i>
+      </div>
+      <i class="fas fa-arrow-circle-right"></i>
+  </a>
+</div>
+</div>
+
+
+<div class="col-lg-3 col-6">
+  <!-- Important Cases -->
+  <a href="importantcase.php" class="small-box-footer">
+    <div class="small-box" style="background-color: #338884 !important">
+      <div class="inner" style="color: #FFF;font-weight: bold;">
+        <h3> <?php
+              $tdate = date('d-M-Y', strtotime('-1 day', strtotime(date("d-M-Y"))));
+              $cc = 0;
+              $resulth = mysqli_query($bd, "SELECT * FROM chatbox WHERE orderid not in(SELECT c1.orderid FROM chatbox as c1 , chatbox as c2 WHERE c1.orderid = c2.orderid and c1.user_type='user' and c2.user_type='SKYDENT TEAM');");
+              while ($rowh = mysqli_fetch_array($resulth)) {
+                  $cc++;
+              }
+              echo $cc;
+              ?>
+
+        </h3>
+
+        <p style="color: #FFF;font-weight: bold;">Important Cases</p>
       </div>
       <div class="icon">
         <i class="fas fa-tasks"></i>
