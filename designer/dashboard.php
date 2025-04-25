@@ -307,7 +307,7 @@ function Total_row($bd, $status)
 
         </h3>
 
-        <p style="color: #FFF;font-weight: bold;">Important Cases</p>
+        <p style="color: #FFF;font-weight: bold;">Important & Alert Cases</p>
       </div>
       <div class="icon">
         <i class="fas fa-tasks"></i>

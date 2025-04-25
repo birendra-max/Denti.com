@@ -11,7 +11,8 @@ date_default_timezone_set("Asia/Kolkata");   //India time (GMT+5:30)
 $mysql_hostname = "localhost";
 $mysql_user = "root";
 $mysql_password = "";
-$mysql_database = "skydent_database";
+$mysql_database = "Dentigo_lab";
+
 
 // $mysql_hostname = "database-1.ckd26egemssz.us-east-1.rds.amazonaws.com";
 // $mysql_user = "DentigoU1";

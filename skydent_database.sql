@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 23, 2025 at 10:55 PM
+-- Generation Time: Apr 25, 2025 at 06:57 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -89,6 +89,16 @@ CREATE TABLE `chatbox` (
   `userid` varchar(255) DEFAULT NULL,
   `filename` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `chatbox`
+--
+
+INSERT INTO `chatbox` (`id`, `orderid`, `user_type`, `msg`, `created_at`, `attachment`, `read_status`, `userid`, `filename`) VALUES
+(1, '100001', 'user', 'Hii i need design', '21-Apr-2025 11:01:20pm', '', NULL, 'D0001', ''),
+(2, '100002', 'user', 'hello i am vicky', '21-Apr-2025 11:01:38pm', '', NULL, 'D0001', ''),
+(3, '100002', 'SKYDENT TEAM', 'tha ks', '21-Apr-2025 11:01:53pm', '', NULL, 'D.Y@skydentdesigns.com', ''),
+(4, '100001', 'SKYDENT TEAM', 'dsafkljlf', '21-Apr-2025 11:02:00pm', '', NULL, 'D.Y@skydentdesigns.com', '');
 
 -- --------------------------------------------------------
 
@@ -222,6 +232,23 @@ CREATE TABLE `orders` (
   `c_id` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `orderid`, `user_id`, `fname`, `tduration`, `clientid`, `unit`, `product_type`, `tooth`, `message`, `optional`, `status`, `created_at`, `labname`, `filename`, `stl_file`, `finished_file`, `finished_file_created_at`, `assign_date`, `did`, `crown`, `custom`, `framework`, `abu`, `model`, `remark`, `backup_status`, `delete_status`, `b_date`, `d_date`, `flag`, `status_ch_date`, `status_r`, `r_date`, `status_c`, `c_date`, `c_id`) VALUES
+(1, '100000', 'D0001', 'Alexandra E.zip', '', NULL, '1', 'Splint', '1', '', NULL, 'Completed', '2025-04-06 01:15:06am', 'Dentigo Test ', '', NULL, NULL, NULL, NULL, NULL, 'Crown', 'N', 'N', 'N', 'N', NULL, NULL, NULL, NULL, NULL, '0', '06-Apr-2025 12:50:52pm', NULL, NULL, 'Completed', '06-Apr-2025 12:50:52pm', 'D.Y@skydentdesigns.com'),
+(2, '100001', 'D0001', 'Samela M_0.zip', '', NULL, '0', '', '', '', NULL, 'New', '2025-04-06 12:38:34pm', 'Dentigo Test ', '', NULL, NULL, NULL, NULL, NULL, 'Crown', 'N', 'N', 'N', 'N', NULL, NULL, NULL, NULL, NULL, '0', '2025-04-06 12:38:34pm', NULL, NULL, NULL, NULL, NULL),
+(3, '100002', 'D0001', '2021-12-A2-HAMED-JONES-239267730-ITERO-SCR.zip', 'Same Day', NULL, '2', 'Unsectioned model, Antagonist model, Crown 12, Abutment 12', '12,12', 'narrow short scan body used', NULL, 'New', '2025-04-07 04:43:53am', 'Dentigo Test ', '', NULL, NULL, NULL, NULL, NULL, 'Crown', 'N', 'N', 'N', 'N', NULL, NULL, NULL, NULL, NULL, '0', '2025-04-07 04:43:53am', NULL, NULL, NULL, NULL, NULL),
+(4, '100003', 'D0001', '4012-19-A35-Bullard-MARX-TRIOS.zip', 'Same Day', NULL, '1', 'Crown 19', '19', '', NULL, 'New', '2025-04-07 04:44:52am', 'Dentigo Test ', '', NULL, NULL, NULL, NULL, NULL, 'Crown', 'N', 'N', 'N', 'N', NULL, NULL, NULL, NULL, NULL, '0', '2025-04-07 04:44:52am', NULL, NULL, NULL, NULL, NULL),
+(5, '100004', 'D0001', '4097-20-A2-Rabell-CSMILES-TRIOS.zip', 'Same Day', NULL, '1', 'Anatomical coping 20', '20', 'Please frabricate PFM crown for #20.  Please design a meisal rest seat on the coping,     Thank You. ', NULL, 'New', '2025-04-07 04:45:21am', 'Dentigo Test ', '', NULL, NULL, NULL, NULL, NULL, 'Crown', 'N', 'N', 'N', 'N', NULL, NULL, NULL, NULL, NULL, '0', '2025-04-07 04:45:21am', NULL, NULL, NULL, NULL, NULL),
+(6, '100005', 'D0001', '529-28-5M3-NDL-7865-MARQUIT-GUERRA-DEXIS.zip', 'Same Day', NULL, '1', 'Crown 28', '28', '', NULL, 'New', '2025-04-07 04:46:11am', 'Dentigo Test ', '', NULL, NULL, NULL, NULL, NULL, 'Crown', 'N', 'N', 'N', 'N', NULL, NULL, NULL, NULL, NULL, '0', '2025-04-07 04:46:11am', NULL, NULL, NULL, NULL, NULL),
+(7, '100006', 'D0001', '7121-13-C3-CABRERA-IDEAL-DENTAL.zip', 'Same Day', NULL, '1', 'Crown 13', '13', '', NULL, 'New', '2025-04-07 04:49:25am', 'Dentigo Test ', '', NULL, NULL, NULL, NULL, NULL, 'Crown', 'N', 'N', 'N', 'N', NULL, NULL, NULL, NULL, NULL, '0', '2025-04-07 04:49:25am', NULL, NULL, NULL, NULL, NULL),
+(8, '100007', 'D0001', '268-15-A3.5-SALGUEDO-IDEAL-DENTAL.zip', 'Same Day', NULL, '1', 'Crown 15', '15', '', NULL, 'New', '2025-04-07 04:50:38am', 'Dentigo Test ', '', NULL, NULL, NULL, NULL, NULL, 'Crown', 'N', 'N', 'N', 'N', NULL, NULL, NULL, NULL, NULL, '0', '2025-04-07 04:50:38am', NULL, NULL, NULL, NULL, NULL),
+(9, '100008', 'D0001', '1010-31-C3-OHALLORANS-IDEAL-DENTAL.zip', 'Same Day', NULL, '1', 'Crown 31', '31', '', NULL, 'New', '2025-04-07 04:51:27am', 'Dentigo Test ', '', NULL, NULL, NULL, NULL, NULL, 'Crown', 'N', 'N', 'N', 'N', NULL, NULL, NULL, NULL, NULL, '0', '2025-04-07 04:51:27am', NULL, NULL, NULL, NULL, NULL),
+(10, '100009', 'D0001', '4129-12-A3-GUTIERREZ-IDEAL-DENTAL.zip', 'Same Day', NULL, '1', 'Crown 12', '12', '', NULL, 'New', '2025-04-07 04:54:12am', 'Dentigo Test ', '', NULL, NULL, NULL, NULL, NULL, 'Crown', 'N', 'N', 'N', 'N', NULL, NULL, NULL, NULL, NULL, '0', '2025-04-07 04:54:12am', NULL, NULL, NULL, NULL, NULL),
+(11, '100010', 'D0001', '359-5-4M1-ROLDAN-PRIME-DENTAL.zip', 'Same Day', NULL, '1', 'Crown 5', '5', '', NULL, 'New', '2025-04-07 04:54:19am', 'Dentigo Test ', '', NULL, NULL, NULL, NULL, NULL, 'Crown', 'N', 'N', 'N', 'N', NULL, NULL, NULL, NULL, NULL, '0', '2025-04-07 04:54:19am', NULL, NULL, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -240,6 +267,13 @@ CREATE TABLE `orders_finished` (
   `b_date` varchar(200) DEFAULT NULL,
   `d_date` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders_finished`
+--
+
+INSERT INTO `orders_finished` (`id`, `orderid`, `user_id`, `finished_file`, `created_at`, `userid`, `backup_status`, `delete_status`, `b_date`, `d_date`) VALUES
+(1, '100000', '', 'Alexandra E.zip', '06-Apr-2025 01:24:21am', 'D.Y@skydentdesigns.com', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -269,6 +303,13 @@ CREATE TABLE `orders_stl_files` (
   `created_at` varchar(100) DEFAULT NULL,
   `userid` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders_stl_files`
+--
+
+INSERT INTO `orders_stl_files` (`id`, `orderid`, `user_id`, `filename`, `created_at`, `userid`) VALUES
+(1, '100000', '', 'Alexandra E_0.stl', '06-Apr-2025 02:37:30am', 'D.Y@skydentdesigns.com');
 
 -- --------------------------------------------------------
 
@@ -391,27 +432,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userid`, `user_id`, `id`, `name`, `designation`, `em`, `occlusion`, `labname`, `amount`, `mobile`, `password`, `status`, `anatomy`, `remark`, `contact`, `pontic`, `todaydate`, `acpinid`, `pic`, `custom`, `lspacer`) VALUES
-(1, 'd1001', 'BRC', 'Test1', 'Lab Manager ', 'vicky@gmail.com', '0.45 mm Out of occlusion ', 'QSDL', NULL, '9711521402', '0cbc6611f5540bd0809a388dc95a615b', 'active', 'GL ', ' Natural design ', '-0.05 MM Broad and Deep ', '0 ', '16-Feb-2023', '1', '', 'Narrow Central, and natural design ', '0'),
-(2, 'd1002', 'BRC1', 'Test', 'Manager ', 'testing@gmail.com', '0.35 mm Out of occlusion ', 'SDL', NULL, '9711521402', '0cbc6611f5540bd0809a388dc95a615b', 'active', 'GL ', '   Natural Designs', '-0.02 MM Broad and Deep ', '0 ', '16-Feb-2023', '1', '', '0', '0'),
-(3, '', 'BRC2', 'Steven ', 'Lab Manager', 'cdmcusa@gmail.com', '0.35 out of occlusion ', 'CDMC', NULL, '9711521402', 'Skydent#2020', 'active', 'GL', ' Natural as much as possible ', '-0.02MM', '0', '28-Feb-2023', '0', '', '0', '0'),
-(4, '', 'BRC3', ' Stephanie', 'Manager ', 'transfers...cadcam@dildentallab.com', 'light (0.15mm)', 'DIL', NULL, '9711521402', 'cadcam2023', 'active', 'Deep/GL', '   Regarding design parameters:\r\n\r\nOcclusion - light (0.15mm)\r\n\r\nDesign type - secondary anatomy unless adjacent anatomy is flat\r\n\r\nContact - Point\r\n\r\nPontic - Ridge lap\r\n\r\n \r\n\r\n3Shape settings:\r\n\r\nRemove undercuts, drill compensation, and new drill compensation is checked. Smooth surface noise is not checked.\r\n\r\nCement gap 0.050\r\n\r\nExtra cement gap 0.100\r\n\r\nDist to margin line 0.40\r\n\r\nSmooth dist 0.20\r\n\r\nDrill radius 0.650\r\n\r\nDrill cop offset 0.66', 'Point', '0', '05-Apr-2023', '1', '', '0', '0'),
-(5, '', 'BRC4', 'Gavin', 'Lab Manager ', 'stainlab@gmail.com', 'Occlusion: 0.33mm clearance (Drs: Nonkovic and Bardia 0.23mm)', 'SL', NULL, '9711521402', 'Govin$3210', 'active', 'GL Keep Natural Anatomy ', ' Pontic : modified ridgelap imbedded into gum (-0.30mm) Anatomy: Ideal but not overly aggressive grooves.Contact: Broad and wide with marginal ridges on the same level. Open contact 0.02mm (gold crowns super tight -0.04mm) Occlusion: 0.33mm clearance (Drs: Nonkovic and Bardia 0.23mm)', '0.02mm broad and deep ', '-0.30', '27-Apr-2023', '0', '', '0', '0'),
-(6, '', 'BRC5', 'Aaron', 'Lab Manager ', 'aaron@niklab.net', '0.20', 'NIK', NULL, '9711521402', 'NIK&skydent#321', 'active', 'Match adjacent or primary', '  Will specify per case if any additional design details will be necessary.', '-0.01', '0', '12-May-2023', '0', '', '0', '0'),
-(7, '', 'BRC6', 'Chris', 'Lab Manager ', 'ExcelMaxLab@gmail.com', '.10 mm', 'C D Designs', NULL, '9711521402', 'Daller$3210', 'active', 'Match adjacent', ' ', '-0.02', '0', '20-May-2023', '0', '', '0', '0'),
-(8, '', 'BRC7', 'kat', 'Lab Manager ', 'katherine.barkley@oralartsdental.com', '0.60', 'ODL', NULL, '9711521402', 'Kat@ORAL#321', 'active', 'GL Keep Natural Anatomy as always ', ' Modified Ridge', '-0.01', '0', '24-May-2023', '0', '', '0', '0'),
-(9, '', 'BRC8', 'Nava', 'manager ', 'navadentallab1@gmail.com', '0.35', 'NDL', NULL, '9711521402', 'NAVA#DENTAL@123', 'active', 'GL Keep Natural Anatomy as always ', ' ', '-0.02', '0', '30-Jun-2023', '1', 'images/Nava Logo.jpg', '0', '0'),
-(10, '', 'BRC9', 'Steven ', 'Lab Manager ', 'pkdsdigital@gmail.com', '0.35', 'PKD', NULL, '9711521402', 'Smile2023', 'active', 'GL Keep Natural Anatomy as always ', ' ', '0.02mm broad and deep ', '0', '23-Aug-2023', '1', '', '0', '0'),
-(11, '', 'BRC10', 'Ben', 'Lab Manager ', 'coldicottb@gmail.com', '0.70', 'ADL - UK', NULL, '9711521402', 'Ben#123456', 'active', 'GL Keep Natural Anatomy as always ', ' ', '-0.02', '0', '31-Aug-2023', '0', '', '0', '0'),
-(12, '', 'BRC11', 'Paul', 'Lab Manager ', 'Info@aldandental.com', '0.10', 'ADL USA - P', NULL, '9711521402', 'Aldan23', 'active', 'Match adjacent - culp yong ', ' Match shape with adjacent tooth ', '-0.03', '0', '08-Sep-2023', '1', '', '0', '0'),
-(13, '', 'BRC12', ' Rubin Ochild', 'Lab Manager ', 'cbdlabdental@gmail.com', '0.35', 'CBD Lab', NULL, '9711521402', 'Rubin@CBD2023', 'active', 'Match adjacent - culp yong ', ' ', '-0.02', '', '27-Sep-2023', '0', '', '0', '0'),
-(14, '', 'BRC13', 'LAKE DENTAL LABORATORY', 'Lab Manager ', 'LAKEDENTALLABORATORY@gmail.com', '.50mm', 'LDL- USA', NULL, '9711521402', 'LAKE#dental#lab321', 'active', 'Match adjacent - culp yong ', ' ', '-0.01', '0', '01-Nov-2023', '0', '', '0', '0'),
-(15, '', 'BRC14', 'Nikki', 'manager ', 'nmccrumb@frontierdentallab.com', '0.35', 'FDL- USA', NULL, '9711521402', 'NIKKI@2024', 'active', 'GL Keep Natural Anatomy as always ', ' ', '-0.02', '0', '30-Jan-2024', '1', '', '0', '0'),
-(16, '', 'BRC15', 'Alex ', 'Lab Manager ', 'alexmedina@neodentallab.com', '0.04 ', 'NEO ', NULL, '9711521402', 'WELCOME@321', 'active', 'GL Keep Natural Anatomy ', ' ', 'Anteriors: 0.05 to 0.10', '0', '29-Apr-2024', '1', '', '0', '0'),
-(17, '', 'BRC16', 'Rahim ', 'Lab Manager ', 'artcosmeticlab@gmail.com', '0.35', 'A C D L', NULL, '9711521402', 'Welcome@4321', 'active', 'GL Keep Natural Anatomy as always ', ' ', '-0.02', '0', '03-May-2024', '1', '', '0', '0'),
-(18, '', 'BRC17', 'Den', 'Lab Manager ', 'vitalitytechllc@gmail.com', '0.35', 'VTDL', NULL, '9711521402', 'Welcome@54321', 'active', 'GL Keep Natural Anatomy as always ', ' ', '-0.02', '0', '22-May-2024', '1', '', '0', '0'),
-(19, '', 'BRC18', 'Alex ', 'Lab Manager ', '3doralengineering@gmail.com', '0.35', 'OE Lab', NULL, '9711521402', 'Welcome@123456', 'active', 'GL Keep Natural Anatomy as always ', ' ', '-0.02', '0', '23-May-2024', '1', '', '0', '0'),
-(20, '', 'BRC19', 'Nathan', 'Lab Manager ', 'cs@pdils.com', '0.35', 'PDIL ', NULL, '9711521402', 'Precision2024#', 'active', 'GL Keep Natural Anatomy as always ', ' Trail ', '0.02mm broad and deep ', '0', '13-Jun-2024', '1', '', '0', '0'),
-(21, 'D0005', 'BRC20', 'test', '', '', '0.40', 'NDLtest', NULL, '979879879798', '0cbc6611f5540bd0809a388dc95a615b', 'active', 'Gl', '    NG', '0.02', '0', '12-Mar-2025', '1', '', '0', '0');
+(1, 'D00001', 'BRC', 'Test', '', '', '0.30', 'Dentigo Test ', NULL, '979979979979', 'ebae4deaef1fa85483255e5749129a51', 'active', 'gl', ' ', '0.00', '0', '01-Apr-2025', '1', '', '0', '0'),
+(2, 'D0001', 'BRC1', 'Test', NULL, NULL, '0.30', 'Dentigo Test ', NULL, '979979979979', '0cbc6611f5540bd0809a388dc95a615b', 'active', 'gl', '', '0.00', '0', '01-Apr-2025', '1', '', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -592,7 +614,7 @@ ALTER TABLE `autopooluser`
 -- AUTO_INCREMENT for table `chatbox`
 --
 ALTER TABLE `chatbox`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `closing`
@@ -628,13 +650,13 @@ ALTER TABLE `mpayment2`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `orders_finished`
 --
 ALTER TABLE `orders_finished`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `orders_finished2`
@@ -646,7 +668,7 @@ ALTER TABLE `orders_finished2`
 -- AUTO_INCREMENT for table `orders_stl_files`
 --
 ALTER TABLE `orders_stl_files`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `orders_stl_files2`
@@ -676,7 +698,7 @@ ALTER TABLE `team_member`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user1`
