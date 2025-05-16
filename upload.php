@@ -32,11 +32,21 @@ if (isset($_FILES['file']['name']) && isset($_SESSION['userid'])) {
         $que = "SELECT max(orderid) as sm FROM orders where user_id='" . $_SESSION['user_id'] . "'";
         $resulth = mysqli_query($bd, $que);
         $rowh = mysqli_fetch_array($resulth);
-        $que1 = mysqli_query($bd, "select id_start,id_end from user where user_id='" . $_SESSION['user_id'] . "'");
-        $ids = mysqli_fetch_assoc($que1);
+        $q = mysqli_query($bd, "SELECT id_end FROM user WHERE id = (SELECT MAX(id) FROM user);");
+        $id_end = mysqli_fetch_assoc($q);
 
-        $oid = ($rowh['sm'] == '') ? $ids['id_start'] : $rowh['sm'];
-        $oid++;
+        $range_size = 900000;
+
+        if ($id_end) {
+            // Find the next base starting from the previous end + 1, aligned to 10 lakh blocks
+            $base = ceil(($id_end['id_end'] + 1) / 1000000) * 1000000;
+            $i_start = $base;
+        } else {
+            $i_start = 100000;
+        }
+
+        $i_end = $i_start + $range_size - 1;
+
 
         if ($oid >= $ids['id_start'] && $oid <= $ids['id_end']) {
             $path = 'api/files/';
