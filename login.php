@@ -18,16 +18,9 @@ if (isset($_POST['submit'])) {
     // Validation error flag
     $errflag = false;
 
-    // Sanitize the POST values
-    $username = clean($bd, $_POST['user_name']);
     $user_id = clean($bd, $_POST['user_id']);
-    $password = clean($bd, md5($_POST['password']));
+    $password = clean($bd, $_POST['password']);
 
-    // Input Validations
-    if ($username == '') {
-        $errmsg_arr[] = 'Username missing';
-        $errflag = true;
-    }
 
     if ($user_id == "") {
         $errmsg_arr[] = 'Username missing';
@@ -43,16 +36,16 @@ if (isset($_POST['submit'])) {
     if ($errflag) {
         $_SESSION['ERRMSG_ARR'] = $errmsg_arr;
         session_write_close();
-        ?>
+?>
         <script>
             window.location = "dashboard.php";
         </script>
-        <?php
+    <?php
         exit();
     }
 
     // Create query
-    $qry = "SELECT * FROM user WHERE name='$username' AND user_id='$user_id' AND password='$password' AND acpinid='1'";
+    $qry = "SELECT * FROM user WHERE user_id='$user_id' AND password='$password' AND acpinid='1'";
     $result = mysqli_query($bd, $qry);
 
     // Check whether the query was successful or not
@@ -78,7 +71,7 @@ if (isset($_POST['submit'])) {
         }
 
         session_write_close();
-        ?>
+    ?>
         <script>
             window.location = "dashboard.php";
         </script>
@@ -91,12 +84,12 @@ if (isset($_POST['submit'])) {
         if ($errflag) {
             $_SESSION['ERRMSG_ARR'] = $errmsg_arr;
             session_write_close();
-            ?>
+        ?>
             <script>
                 alert('Username Or Password Invalid');
                 window.location = "dashboard.php";
             </script>
-            <?php
+<?php
             exit();
         }
     }
@@ -266,15 +259,6 @@ if (isset($_POST['submit'])) {
                         Login
                     </h1>
                     <form action="login.php" method="post" class="py-2">
-
-                        <div class="form-group">
-                            <label for="user_name">
-                                User name
-                            </label>
-                            <input class="form-control custom-input" id="user_name" name="user_name"
-                                placeholder="Enter your user name" type="text" required />
-                        </div>
-
                         <div class="form-group">
                             <label for="user id">
                                 User Id

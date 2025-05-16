@@ -15,11 +15,11 @@
 	$rowwc = mysqli_fetch_assoc($rqc);
 	$sssc = $rowwc['cnt'];
 	if ($sssc < 1) {
-		if (mysqli_query($bd, "INSERT INTO user(id,name,user_id,mobile,labname,occlusion,password,status,todaydate,anatomy,pontic,remark,contact,acpinid,pic) VALUES('$id','$name','$user_id','$mobile','$labname','$occlusion','" . md5($pass_w) . "','active','$tdate','$anatomy','$pontic','$remark','$contact','1','')")) {
+		if (mysqli_query($bd, "INSERT INTO user(id,name,user_id,mobile,labname,occlusion,password,status,todaydate,anatomy,pontic,remark,contact,acpinid,pic) VALUES('$id','$name','$user_id','$mobile','$labname','$occlusion','" . $pass_w . "','active','$tdate','$anatomy','$pontic','$remark','$contact','1','')")) {
 
 	?>
    		<script>
-   			alert('Client is registered successfully  with SKYDENT PRIVATE LIMITED.Your Login ID is <?php echo $user_id ?> and Default Password is 12345 . You can change your password after the login.');
+   			alert('Client is registered successfully  with SKYDENT PRIVATE LIMITED.Your Login ID is <?php echo $user_id ?> and the Password is <?php echo $pass_w; ?> . You can change your password after the login.');
    			window.location = "new_client.php";
    		</script>
    <?php

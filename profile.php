@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
   $name = mysqli_real_escape_string($bd, $_POST['name']);
   $remark = mysqli_real_escape_string($bd, $_POST['remark']);
   $clientId = mysqli_real_escape_string($bd, $_POST['client_id']);
-  $pass = md5(mysqli_real_escape_string($bd, $_POST['pass_w']));
+  $pass = mysqli_real_escape_string($bd, $_POST['pass_w']);
 
   $uploadDir = 'public/upload';
   $uploadFile = $uploadDir . basename($_FILES['profile_pic']['name']);
