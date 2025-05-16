@@ -32,20 +32,26 @@ if (isset($_FILES['file']['name']) && isset($_SESSION['userid'])) {
         $que = "SELECT max(orderid) as sm FROM orders where user_id='" . $_SESSION['user_id'] . "'";
         $resulth = mysqli_query($bd, $que);
         $rowh = mysqli_fetch_array($resulth);
+
+
         $q = mysqli_query($bd, "SELECT id_end FROM user WHERE id = (SELECT MAX(id) FROM user);");
         $id_end = mysqli_fetch_assoc($q);
 
+        // Start the very first user at 100000 and give each user exactly 900000 numbers
+        $initial_start = 100000;
         $range_size = 900000;
 
         if ($id_end) {
-            // Find the next base starting from the previous end + 1, aligned to 10 lakh blocks
-            $base = ceil(($id_end['id_end'] + 1) / 1000000) * 1000000;
-            $i_start = $base;
+            // Calculate how many full blocks have already been used
+            $block_number = floor(($id_end['id_end'] - $initial_start + 1) / $range_size) + 1;
+            $i_start = $initial_start + ($block_number * $range_size);
         } else {
-            $i_start = 100000;
+            $i_start = $initial_start; // First user
         }
 
         $i_end = $i_start + $range_size - 1;
+
+
 
 
         if ($oid >= $ids['id_start'] && $oid <= $ids['id_end']) {
