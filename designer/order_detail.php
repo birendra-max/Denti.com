@@ -195,7 +195,7 @@ if (isset($_GET['finished_id_o'])) {
 										?>
 											<a href="download_file.php?id=<?php echo urlencode($row['fname']) ?>" target="_blank"> <?php echo ($row['fname']); ?></a>
 										<?php } else { ?>
-											<a href="../api/files/<?php echo $row['user_id'] . '_' . $row['orderid'] . '/' . urlencode($row['fname']); ?>"> <?php echo $row['fname']; ?></a>
+											<a href="../api/files/<?php echo $row['user_id'] . '_' . $row['orderid'] . '/' . $row['fname']; ?>"> <?php echo $row['fname']; ?></a>
 
 										<?php } ?>
 										|| <?php echo $row['created_at']; ?>
@@ -264,6 +264,7 @@ if (isset($_GET['finished_id_o'])) {
 											</thead>
 											<?php
 											$sql22 = "SELECT * FROM orders_stl_files where orderid='$orderid'";
+											
 											$res22 = mysqli_query($bd, $sql22);
 											$i = 1;
 											while ($row22 = mysqli_fetch_array($res22)) {
@@ -311,7 +312,7 @@ if (isset($_GET['finished_id_o'])) {
 											<a href="download_finished.php?id=<?php echo urlencode($row23['finished_file']) ?>"> <?php echo $row23['finished_file'] ?> || <?php echo $row23['created_at'] ?></a> || <a href="order_detail.php?orderid=<?php echo $orderid ?>&finished_o=1&finished_id_o=<?php echo $row23['id'] ?>&finished_filename_o=<?php echo $row23['finished_file'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure to delete this.')"> <i class="fas fa-trash"></i> Delete</a>
 										<?php 	} else { ?>
 
-											<a href="../api/finished_files/<?php echo $row['user_id'] . '_' . $row['orderid'] . '/' . urlencode($row23['finished_file']); ?>"> <?php echo $row23['finished_file'] ?> || <?php echo $row23['created_at'] ?></a> ||
+											<a href="../api/finished_files/<?php echo $row23['finished_file']; ?>"> <?php echo $row23['finished_file'] ?> || <?php echo $row23['created_at'] ?></a> ||
 											<a href="order_detail.php?orderid=<?php echo $orderid ?>&finished_o=1&finished_id_o=<?php echo $row23['id'] ?>&finished_filename_o=<?php echo urlencode($row23['finished_file']) ?>" class="btn btn-danger" onclick="return confirm('Are you sure to delete this.')"> <i class="fas fa-trash"></i> Delete</a>
 									<?php }
 									}
